@@ -9,11 +9,9 @@ Add this line to your application's Gemfile:
 ```ruby
 group :development, :test do
   # ...
-  gem "boxt-ruby-style-guide",
+  gem "boxt_ruby_style_guide",
       branch: "tags/0.0.1",
-      git: "#{thisiszone}/boxt-ruby-style-guide.git"
-  gem "reek" # SEE TODOs...
-  gem "rubocop" # SEE TODOs...
+      git: "git@bitbucket.org:thisiszone/boxt-ruby-style-guide.git"
 end
 ```
 
@@ -23,9 +21,55 @@ And then execute:
 bundle
 ```
 
+To make the lint rake tasks available to non Rails apps and gems, add the following to the project's `Rakefile`:
+
+```ruby
+require "boxt_ruby_style_guide"
+
+BoxtRubyStyleGuide.install_tasks
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+### Rubocop Config
+
+Add a `.rubocop.yml` file to the root of your project with the following settings:
+
+```yml
+inherit_gem:
+  boxt-ruby-style-guide: .rubocop.yml
+```
+
+### Lint Rake Tasks
+
+There are a couple of rake tasks added to the project that allow you to run `reek` and `rubocop` against files listed as changed by Git.
+
+To run `reek` against any changed files use:
+
+```sh
+rake lint:reek
+```
+
+To run `rubocop` against any changed files use:
+
+```sh
+rake lint:rubocop
+```
+
+If there are no changed files the commands will run against all files.
+
+There are also some useful editor plugins to help with in-editor linting.
+
+Atom:
+
+* [linter-reek](https://atom.io/packages/linter-reek)
+* [linter-rubocop](https://atom.io/packages/linter-rubocop)
+* [rubocop-auto-correct](https://atom.io/packages/rubocop-auto-correct)
+
+RubyMine:
+
+* reek - Doesn't appear to be editor integration
+* [rubocop](https://www.jetbrains.com/help/ruby/rubocop.html)
 
 ## Versioning
 

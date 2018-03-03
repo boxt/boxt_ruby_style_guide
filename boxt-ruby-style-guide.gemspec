@@ -2,7 +2,7 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "boxt/ruby/style/guide/version"
+require "boxt_ruby_style_guide/version"
 
 # rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
@@ -12,9 +12,9 @@ Gem::Specification.new do |spec|
   spec.email         = ["stuart.chinery@gmail.com"]
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
-  spec.name          = "boxt-ruby-style-guide"
+  spec.name          = "boxt_ruby_style_guide"
   spec.summary       = "Ruby styleguide info for the BOXT Ruby projects"
-  spec.version       = Boxt::Ruby::Style::Guide::VERSION
+  spec.version       = BoxtRubyStyleGuide::VERSION
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the
   # 'allowed_push_host' to allow pushing to a single host or delete this
@@ -34,12 +34,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "reek",               "~> 4.7"
+  spec.add_dependency "rubocop",            "~> 0.52"
+
   spec.add_development_dependency "bundler",            "~> 1.16"
   spec.add_development_dependency "minitest",           "~> 5.0"
   spec.add_development_dependency "minitest-fail-fast", "~> 0.1"
   spec.add_development_dependency "minitest-reporters", "~> 1.1"
   spec.add_development_dependency "rake",               "~> 10.0"
-  spec.add_development_dependency "reek",               "~> 4.7"
-  spec.add_development_dependency "rubocop",            "~> 0.52"
 end
 # rubocop:enable Metrics/BlockLength

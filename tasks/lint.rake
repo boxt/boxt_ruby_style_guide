@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "reek"
+require "rubocop"
+
 namespace :lint do
   desc "Runs reek against all .rb files git lists as changed. Will run
   against all files if none changed"
