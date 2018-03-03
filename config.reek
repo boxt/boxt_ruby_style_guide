@@ -1,6 +1,7 @@
 ---
+
 IrresponsibleModule:
   enabled: false
 exclude_paths:
   - config
-  - test
+  - db
