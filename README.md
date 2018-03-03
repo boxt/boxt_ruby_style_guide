@@ -31,6 +31,10 @@ BoxtRubyStyleGuide.install_tasks
 
 ## Usage
 
+### Reek Config
+
+The Reek config is loaded automatically by this gem so there shouldn't be anything that you need to do. However am not sure if this will effect using in-editor linters.
+
 ### Rubocop Config
 
 Add a `.rubocop.yml` file to the root of your project with the following settings:
