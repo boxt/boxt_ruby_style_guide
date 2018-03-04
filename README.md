@@ -29,6 +29,8 @@ require "boxt_ruby_style_guide"
 BoxtRubyStyleGuide.install_tasks
 ```
 
+Rails apps should have access to the lint tasks by default.
+
 ## Usage
 
 ### Reek Config
