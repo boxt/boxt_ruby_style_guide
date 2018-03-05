@@ -3,7 +3,6 @@
 require "boxt_ruby_style_guide/railtie" if defined?(Rails)
 require "boxt_ruby_style_guide/version"
 
-# BOXT Ruby Style Guide
 module BoxtRubyStyleGuide
   class << self
     def install_tasks
