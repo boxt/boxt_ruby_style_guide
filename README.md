@@ -2,6 +2,8 @@
 
 Ruby style guide info for the BOXT projects, as well as config settings for Rubocop.
 
+For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as our base guide, with any deviations can be found in the `.rubocop.yml` for this project.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -25,9 +27,10 @@ To make the lint rake tasks available to non Rails apps and gems, add the follow
 
 ```ruby
 require "boxt_ruby_style_guide"
-
 BoxtRubyStyleGuide.install_tasks
 ```
+
+Rails apps should have access to the lint tasks by default.
 
 ## Usage
 
