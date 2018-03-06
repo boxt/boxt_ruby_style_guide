@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Ruby styleguide info for the BOXT projects, as well as"\
                        "config settings for Rubocop"
   spec.email         = ["stuart.chinery@gmail.com"]
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://bitbucket.org/thisiszone/boxt-ruby-style-guide"
   spec.license       = "MIT"
   spec.name          = "boxt_ruby_style_guide"
   spec.summary       = "Ruby styleguide info for the BOXT Ruby projects"
