@@ -16,6 +16,9 @@ Metrics/LineLength:
   Max: 120
 
 # Exclude class and method length for test
+Metrics/BlockLength:
+  Exclude:
+    - "test/**/*"
 Metrics/ClassLength:
   Exclude:
     - "test/**/*"
