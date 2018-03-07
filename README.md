@@ -6,14 +6,20 @@ For the most part we are using [this Ruby style guide](https://github.com/bbatso
 
 ## Installation
 
-Add this line to your application's Gemfile:
+We are now using Gemfury to host all our private packages.
+
+Please ensure you have added your private repo URL from Gemfury to the application's Gemfile, example:
+
+```ruby
+source 'https://qVz5xDENYkkuVWQ37cb5@gem.fury.io/boxt/'
+```
+
+Then add this line to your application's Gemfile:
 
 ```ruby
 group :development, :test do
   # ...
-  gem "boxt_ruby_style_guide",
-      branch: "tags/0.0.1",
-      git: "git@bitbucket.org:thisiszone/boxt-ruby-style-guide.git"
+  gem "boxt_ruby_style_guide"
 end
 ```
 
