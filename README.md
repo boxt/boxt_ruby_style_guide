@@ -2,7 +2,7 @@
 
 Ruby style guide info for the BOXT projects, as well as config settings for Rubocop.
 
-For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as our base guide, with any deviations can be found in the `.rubocop.yml` for this project.
+For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as our base guide, with any deviations can be found in the `default.yml` for this project.
 
 ## Installation
 
@@ -50,7 +50,8 @@ Add a `.rubocop.yml` file to the root of your project with the following setting
 
 ```yml
 inherit_gem:
-  boxt-ruby-style-guide: .rubocop.yml
+  boxt-ruby-style-guide:
+    - default.yml
 ```
 
 ### Lint Rake Tasks
