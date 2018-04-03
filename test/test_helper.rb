@@ -11,9 +11,5 @@ Minitest::Reporters.use!(
   Minitest.backtrace_filter
 )
 
-# Needed by "minitest/osx" because it uses cattr_accessor
-# See: https://github.com/tombell/minitest-osx/issues/3
-require "active_support/all"
 require "minitest/autorun"
 require "minitest/fail_fast"
-require "minitest/osx"
