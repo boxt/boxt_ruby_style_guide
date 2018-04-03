@@ -26,13 +26,13 @@ GEM
     minitest (5.11.3)
     minitest-fail-fast (0.1.0)
       minitest (~> 5)
-    minitest-reporters (1.1.19)
+    minitest-reporters (1.2.0)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
     parallel (1.12.1)
-    parser (2.5.0.3)
+    parser (2.5.0.5)
       ast (~> 2.4.0)
     powerpack (0.1.1)
     rainbow (3.0.0)
@@ -41,7 +41,7 @@ GEM
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.5.0.0, < 2.6)
       rainbow (~> 3.0)
-    rubocop (0.53.0)
+    rubocop (0.54.0)
       parallel (~> 1.10)
       parser (>= 2.5)
       powerpack (~> 0.1)
