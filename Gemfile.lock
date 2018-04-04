@@ -26,15 +26,17 @@ GEM
     minitest (5.11.3)
     minitest-fail-fast (0.1.0)
       minitest (~> 5)
-    minitest-macos-notification (0.0.1)
+    minitest-macos-notification (0.0.2)
       minitest (~> 5.0)
       minitest-reporters (~> 1.1)
+      os (~> 1.0)
       terminal-notifier (~> 2.0)
     minitest-reporters (1.2.0)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    os (1.0.0)
     parallel (1.12.1)
     parser (2.5.0.5)
       ast (~> 2.4.0)
