@@ -6,9 +6,7 @@ For the most part we are using [this Ruby style guide](https://github.com/bbatso
 
 ## Installation
 
-We are now using Gemfury to host all our private packages.
-
-Please ensure you have added your private repo URL from Gemfury to the application's Gemfile, example:
+We are now using Gemfury to host all our private packages. Please ensure you have added your private repo URL from Gemfury to the application's Gemfile, example:
 
 ```ruby
 source 'https://qVz5xDENYkkuVWQ37cb5@gem.fury.io/boxt/'
