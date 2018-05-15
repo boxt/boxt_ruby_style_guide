@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    boxt_ruby_style_guide (0.5.0)
+    boxt_ruby_style_guide (1.0.0)
       reek (~> 4.7)
       rubocop (~> 0.52)
 
@@ -26,22 +26,28 @@ GEM
     minitest (5.11.3)
     minitest-fail-fast (0.1.0)
       minitest (~> 5)
-    minitest-reporters (1.1.19)
+    minitest-macos-notification (0.0.2)
+      minitest (~> 5.0)
+      minitest-reporters (~> 1.1)
+      os (~> 1.0)
+      terminal-notifier (~> 2.0)
+    minitest-reporters (1.2.0)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    os (1.0.0)
     parallel (1.12.1)
-    parser (2.5.0.3)
+    parser (2.5.1.0)
       ast (~> 2.4.0)
     powerpack (0.1.1)
     rainbow (3.0.0)
     rake (10.5.0)
-    reek (4.8.0)
+    reek (4.8.1)
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.5.0.0, < 2.6)
-      rainbow (~> 3.0)
-    rubocop (0.53.0)
+      rainbow (>= 2.0, < 4.0)
+    rubocop (0.56.0)
       parallel (~> 1.10)
       parser (>= 2.5)
       powerpack (~> 0.1)
@@ -49,8 +55,9 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
+    terminal-notifier (2.0.0)
     thread_safe (0.3.6)
-    unicode-display_width (1.3.0)
+    unicode-display_width (1.3.2)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -65,6 +72,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   minitest (~> 5.0)
   minitest-fail-fast (~> 0.1)
+  minitest-macos-notification
   minitest-reporters (~> 1.1)
   rake (~> 10.0)
 
