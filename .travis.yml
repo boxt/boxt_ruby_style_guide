@@ -1,5 +1,21 @@
-sudo: false
 language: ruby
-rvm:
-  - 2.4.2
-before_install: gem install bundler -v 1.16.1
+sudo: false
+matrix:
+  fast_finish: true
+branches:
+  only:
+  - develop
+  - master
+  - /\Arelease.*\z/
+  - /\Ahotfix.*\z/
+before_script:
+- gem install bundler
+- git config --local user.email "developers@boxt.co.uk"
+- git config --local user.name  "Boxt Developers Group"
+script:
+- bundle exec rake test
+cache: bundler
+notifications:
+  email:
+  - developers@boxt.co.uk
+  slack: boxt:hwim3Ix4PeXQtkTXRZ5kd8Kr
