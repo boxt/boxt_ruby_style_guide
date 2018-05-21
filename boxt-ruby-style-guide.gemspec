@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+# rubocop:disable Styles/ExpandPathArguments
+# NOTE: This is because of Gemfury failing with __dir__
 lib = File.expand_path("../lib", __FILE__)
+# rubocop:enable Styles/ExpandPathArguments
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "boxt_ruby_style_guide/version"
 
@@ -10,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Ruby styleguide info for the BOXT projects, as well as"\
                        "config settings for Rubocop"
   spec.email         = ["stuart.chinery@gmail.com"]
-  spec.homepage      = "https://bitbucket.org/thisiszone/boxt-ruby-style-guide"
+  spec.homepage      = "https://github.com/boxt/ruby-style-guide"
   spec.license       = "MIT"
   spec.name          = "boxt_ruby_style_guide"
   spec.summary       = "Ruby styleguide info for the BOXT Ruby projects"
@@ -43,5 +46,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest-macos-notification"
   spec.add_development_dependency "minitest-reporters", "~> 1.1"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "simplecov"
 end
 # rubocop:enable Metrics/BlockLength
