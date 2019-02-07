@@ -90,5 +90,8 @@ DEPENDENCIES
   rake (~> 12.3, >= 12.3.2)
   simplecov (~> 0.16.1)
 
+RUBY VERSION
+   ruby 2.5.3p105
+
 BUNDLED WITH
    1.17.3
