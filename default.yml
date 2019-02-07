@@ -7,6 +7,10 @@ AllCops:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+# To make Lorenzo happy
+Style/AlignHash:
+  EnforcedColonStyle: table
+
 # Disable Style/Documentation because...
 Style/Documentation:
   Enabled: false
