@@ -88,3 +88,19 @@ RubyMine:
 The version of the engine should be set in the `VERSION` file found in the root of the project. This is then read by the `lib/boxt/ruby/style/guide/core/version.rb` file to set in the engine.
 
 If you are using [Git Flow AVH](https://github.com/petervanderdoes/gitflow-avh) and the default [Git Flow Hooks](https://github.com/jaspernbrouwer/git-flow-hooks) then the `VERSION` file will be updated automatically when creating a 'release' or 'hotfix' tag.
+
+## Publishing to Gemfury
+
+After setting the new version as explained above you will now need to push the new version to Gemfury. To do this carry out the following steps:
+
+Add the Gemfury remote (you only need to do this once):
+
+```sh
+git remote add fury https://YOUR_USRNAME_HERE@git.fury.io/boxt/boxt_ruby_style_guide.git
+```
+
+And then push the new code to Gemfury:
+
+```sh
+git push fury master
+```
