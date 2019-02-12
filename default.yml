@@ -3,17 +3,9 @@ AllCops:
   Exclude:
     - "db/**/*"
 
-# Use double quotes ALL THE TIME!!!
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
-
 # To make Lorenzo happy
-Style/AlignHash:
+Layout/AlignHash:
   EnforcedColonStyle: table
-
-# Disable Style/Documentation because...
-Style/Documentation:
-  Enabled: false
 
 # Increase line length to 120
 Metrics/LineLength:
@@ -29,3 +21,11 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   Exclude:
     - "test/**/*"
+    
+# Disable Style/Documentation because...
+Style/Documentation:
+  Enabled: false
+
+# Use double quotes ALL THE TIME!!!
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
