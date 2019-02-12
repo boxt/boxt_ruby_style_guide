@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    boxt_ruby_style_guide (1.1.4)
+    boxt_ruby_style_guide (1.1.5)
       reek (~> 5.3, >= 5.3.0)
       rubocop (~> 0.63.1)
 
