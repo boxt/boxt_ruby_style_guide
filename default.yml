@@ -1,7 +1,12 @@
 AllCops:
   TargetRubyVersion: 2.5.1
   Exclude:
+    - "db/*"
     - "db/**/*"
+    - "db/fixtures/**/*"
+    - "node_modules/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
 
 # To make Lorenzo happy
 Layout/AlignHash:
