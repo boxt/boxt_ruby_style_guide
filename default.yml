@@ -6,6 +6,7 @@ AllCops:
 # To make Lorenzo happy
 Layout/AlignHash:
   EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
 
 # Increase line length to 120
 Metrics/LineLength:
@@ -21,7 +22,7 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   Exclude:
     - "test/**/*"
-    
+
 # Disable Style/Documentation because...
 Style/Documentation:
   Enabled: false
