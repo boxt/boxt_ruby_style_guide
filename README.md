@@ -4,6 +4,8 @@ Ruby style guide info for the BOXT projects, as well as config settings for Rubo
 
 For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as our base guide, with any deviations can be found in the `default.yml` for this project.
 
+[![CircleCI](https://circleci.com/gh/boxt/boxt_ruby_style_guide.svg?style=svg&circle-token=f35d504fcda5a0d8de30f58cdc0ff7f817a9db75)](https://circleci.com/gh/boxt/boxt_ruby_style_guide)
+
 ## Installation
 
 We are now using Gemfury to host all our private packages. Please ensure you have added your private repo URL from Gemfury to the application's Gemfile, example:
