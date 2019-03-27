@@ -7,7 +7,6 @@ lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "boxt_ruby_style_guide/version"
 
-# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   spec.authors       = ["Boxt"]
   spec.description   = "Ruby styleguide info for the BOXT projects, as well as"\
@@ -18,16 +17,6 @@ Gem::Specification.new do |spec|
   spec.name          = "boxt_ruby_style_guide"
   spec.summary       = "Ruby styleguide info for the BOXT Ruby projects"
   spec.version       = BoxtRubyStyleGuide::VERSION
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the
-  # 'allowed_push_host' to allow pushing to a single host or delete this
-  # section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
@@ -48,4 +37,3 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 12.3", ">= 12.3.2"
   spec.add_development_dependency "simplecov", "~> 0.16.1"
 end
-# rubocop:enable Metrics/BlockLength
