@@ -9,10 +9,10 @@ require "boxt_ruby_style_guide/version"
 
 # rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
-  spec.authors       = ["Stuart Chinery"]
+  spec.authors       = ["Boxt"]
   spec.description   = "Ruby styleguide info for the BOXT projects, as well as"\
                        "config settings for Rubocop"
-  spec.email         = ["stuart.chinery@gmail.com"]
+  spec.email         = ["developers@boxt.co.uk"]
   spec.homepage      = "https://github.com/boxt/ruby-style-guide"
   spec.license       = "MIT"
   spec.name          = "boxt_ruby_style_guide"
