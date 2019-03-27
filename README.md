@@ -8,13 +8,7 @@ For the most part we are using [this Ruby style guide](https://github.com/bbatso
 
 ## Installation
 
-We are now using Gemfury to host all our private packages. Please ensure you have added your private repo URL from Gemfury to the application's Gemfile, example:
-
-```ruby
-source 'https://qVz5xDENYkkuVWQ37cb5@gem.fury.io/boxt/'
-```
-
-Then add this line to your application's Gemfile:
+Add this line to your application's Gemfile:
 
 ```ruby
 group :development, :test do
@@ -85,24 +79,10 @@ RubyMine:
 * reek - Doesn't appear to be editor integration
 * [rubocop](https://www.jetbrains.com/help/ruby/rubocop.html)
 
-## Versioning
+## Contributing
 
-The version of the engine should be set in the `VERSION` file found in the root of the project. This is then read by the `lib/boxt/ruby/style/guide/core/version.rb` file to set in the engine.
+Bug reports and pull requests are welcome on GitHub at https://github.com/boxt/logga.
 
-If you are using [Git Flow AVH](https://github.com/petervanderdoes/gitflow-avh) and the default [Git Flow Hooks](https://github.com/jaspernbrouwer/git-flow-hooks) then the `VERSION` file will be updated automatically when creating a 'release' or 'hotfix' tag.
+## License
 
-## Publishing to Gemfury
-
-After setting the new version as explained above you will now need to push the new version to Gemfury. To do this carry out the following steps:
-
-Add the Gemfury remote (you only need to do this once):
-
-```sh
-git remote add fury https://YOUR_USRNAME_HERE@git.fury.io/boxt/boxt_ruby_style_guide.git
-```
-
-And then push the new code to Gemfury:
-
-```sh
-git push fury master
-```
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
