@@ -23,7 +23,7 @@ jobs:
           keys: boxt-ruby-style-guide-{{ checksum "Gemfile.lock" }}
       - run:
           name: Bundle Install
-          command: bundle check || bundle install
+          command: bundle install
       - save_cache:
           key: boxt-ruby-style-guide-{{ checksum "Gemfile.lock" }}
           paths:
