@@ -4,6 +4,7 @@ AllCops:
     - "db/*"
     - "db/**/*"
     - "db/fixtures/**/*"
+    - "Gemfile*"
     - "node_modules/**/*"
     - "tmp/**/*"
     - "vendor/**/*"
