@@ -9,11 +9,6 @@ AllCops:
     - "tmp/**/*"
     - "vendor/**/*"
 
-# To make Lorenzo happy
-Layout/AlignHash:
-  EnforcedColonStyle: table
-  EnforcedHashRocketStyle: table
-
 # Increase line length to 120
 Metrics/LineLength:
   Max: 120
