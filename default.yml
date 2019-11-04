@@ -12,10 +12,12 @@ AllCops:
 # Increase line length to 120
 Metrics/LineLength:
   Max: 120
-
+  Exclude:
+    - "config/routes.rb"
 # Exclude class and method length for test
 Metrics/BlockLength:
   Exclude:
+    - "config/routes.rb"
     - "test/**/*"
 Metrics/ClassLength:
   Exclude:
