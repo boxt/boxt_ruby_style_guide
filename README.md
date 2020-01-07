@@ -76,7 +76,7 @@ There are also some useful Rubocop editor plugins to help with in-editor linting
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/boxt/logga.
+Bug reports and pull requests are welcome on GitHub at https://github.com/boxt/ruby_style_guide.
 
 ## License
 
