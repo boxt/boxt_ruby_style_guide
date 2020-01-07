@@ -1,6 +1,6 @@
 # BOXT Ruby Style Guide
 
-Ruby style guide info for the BOXT projects, as well as config settings for Rubocop.
+Ruby style guide and base Rubocop settings for Boxt Ruby projects.
 
 For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as the base guide, with any deviations can be found in the `default.yml`.
 
