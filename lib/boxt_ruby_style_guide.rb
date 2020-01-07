@@ -11,10 +11,6 @@ module BoxtRubyStyleGuide
       end
     end
 
-    def reek_config
-      File.join(gem_spec.gem_dir, "config.reek")
-    end
-
     private
 
     def gem_spec

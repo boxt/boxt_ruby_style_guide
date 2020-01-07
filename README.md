@@ -1,10 +1,11 @@
 # BOXT Ruby Style Guide
 
-Ruby style guide info for the BOXT projects, as well as config settings for Rubocop.
+Ruby style guide and base Rubocop settings for Boxt Ruby projects.
 
-For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as our base guide, with any deviations can be found in the `default.yml` for this project.
+For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as the base guide, with any deviations can be found in the `default.yml`.
 
-[![CircleCI](https://circleci.com/gh/boxt/boxt_ruby_style_guide.svg?style=svg&circle-token=f35d504fcda5a0d8de30f58cdc0ff7f817a9db75)](https://circleci.com/gh/boxt/boxt_ruby_style_guide)
+[![Gem Version](https://badge.fury.io/rb/boxt_ruby_style_guide.png)](https://badge.fury.io/rb/boxt_ruby_style_guide)
+[![CircleCI](https://circleci.com/gh/boxt/boxt_ruby_style_guide/tree/master.svg?style=svg)](https://circleci.com/gh/boxt/boxt_ruby_style_guide/tree/master)
 
 ## Installation
 
@@ -34,10 +35,6 @@ Rails apps should have access to the lint tasks by default.
 
 ## Usage
 
-### Reek Config
-
-The Reek config is loaded automatically by this gem so there shouldn't be anything that you need to do. However am not sure if this will effect using in-editor linters.
-
 ### Rubocop Config
 
 Add a `.rubocop.yml` file to the root of your project with the following settings:
@@ -48,15 +45,9 @@ inherit_gem:
     - default.yml
 ```
 
-### Lint Rake Tasks
+### Lint Tasks
 
-There are a couple of rake tasks added to the project that allow you to run `reek` and `rubocop` against files listed as changed by Git.
-
-To run `reek` against any changed files use:
-
-```sh
-rake lint:reek
-```
+Lint tasks to run against files listed as changed by Git.
 
 To run `rubocop` against any changed files use:
 
@@ -66,22 +57,26 @@ rake lint:rubocop
 
 If there are no changed files the commands will run against all files.
 
-There are also some useful editor plugins to help with in-editor linting.
+### Editor Plugins
 
-Atom:
+There are also some useful Rubocop editor plugins to help with in-editor linting.
 
-* [linter-reek](https://atom.io/packages/linter-reek)
-* [linter-rubocop](https://atom.io/packages/linter-rubocop)
-* [rubocop-auto-correct](https://atom.io/packages/rubocop-auto-correct)
+#### Atom
 
-RubyMine:
+- [linter-rubocop](https://atom.io/packages/linter-rubocop)
+- [rubocop-auto-correct](https://atom.io/packages/rubocop-auto-correct)
 
-* reek - Doesn't appear to be editor integration
-* [rubocop](https://www.jetbrains.com/help/ruby/rubocop.html)
+#### RubyMine
+
+- [rubocop](https://www.jetbrains.com/help/ruby/rubocop.html)
+
+#### VSCode
+
+- [ruby-rubocop](https://marketplace.visualstudio.com/items?itemName=misogi.ruby-rubocop)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/boxt/logga.
+Bug reports and pull requests are welcome on GitHub at https://github.com/boxt/ruby_style_guide.
 
 ## License
 
