@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.version = BoxtRubyStyleGuide::VERSION
 
   spec.files = Dir[
+    "default.yml",
     "lib/**/*",
     "MIT-LICENSE",
     "Rakefile",
