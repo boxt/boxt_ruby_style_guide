@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/ExpandPathArguments
+# rubocop:disable Style/Style/ExpandPathArguments
 # NOTE: This is because of Gemfury failing with __dir__
 lib = File.expand_path("../lib", __FILE__)
-# rubocop:enable Style/ExpandPathArguments
+# rubocop:enable Style/Style/ExpandPathArguments
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "boxt_ruby_style_guide/version"
 
