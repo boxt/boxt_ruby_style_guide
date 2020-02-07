@@ -7,13 +7,13 @@ Layout/LineLength:
 Metrics/BlockLength: # Exclude block length for routes and specs
   Exclude:
     - "config/routes.rb"
-    - "spec/**/*"
+    - "spec/**/*.rb"
 Metrics/ClassLength: # Exclude class length for specs
   Exclude:
-    - "spec/**/*"
+    - "spec/**/*.rb"
 Metrics/MethodLength: # Exclude method length for specs
   Exclude:
-    - "spec/**/*"
+    - "spec/**/*.rb"
 Style/DoubleNegation:
   Enabled: false
 Style/Documentation:
