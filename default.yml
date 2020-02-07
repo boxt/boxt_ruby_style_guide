@@ -4,16 +4,16 @@ Layout/LineLength:
   Max: 120 # Increase line length to 120
   Exclude:
     - "config/routes.rb"
-Metrics/BlockLength: # Exclude block length for routes and tests
+Metrics/BlockLength: # Exclude block length for routes and specs
   Exclude:
     - "config/routes.rb"
-    - "test/**/*"
-Metrics/ClassLength: # Exclude class length for tests
+    - "spec/**/*"
+Metrics/ClassLength: # Exclude class length for specs
   Exclude:
-    - "test/**/*"
-Metrics/MethodLength: # Exclude method length for tests
+    - "spec/**/*"
+Metrics/MethodLength: # Exclude method length for specs
   Exclude:
-    - "test/**/*"
+    - "spec/**/*"
 Style/DoubleNegation:
   Enabled: false
 Style/Documentation:
