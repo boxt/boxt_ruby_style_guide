@@ -31,6 +31,6 @@ jobs:
             - vendor/bundle
       - run:
           name: Run tests
-          command: bundle exec rake test | circleci tests split --split-by=timings
+          command: bundle exec rspec | circleci tests split --split-by=timings
       - store_test_results:
           path: test_results
