@@ -19,10 +19,10 @@ Style/DoubleNegation:
 Style/Documentation:
   Enabled: false # Disable Style/Documentation because...
 Style/HashEachMethods:
-  Enabled: true
+  Enabled: true # These will be enabled by default at some point, but adding for now to stop Rubocop complaining...
 Style/HashTransformKeys:
-  Enabled: true
+  Enabled: true # These will be enabled by default at some point, but adding for now to stop Rubocop complaining...
 Style/HashTransformValues:
-  Enabled: true
+  Enabled: true # These will be enabled by default at some point, but adding for now to stop Rubocop complaining...
 Style/StringLiterals:
   EnforcedStyle: double_quotes # Use double quotes ALL THE TIME!!!
