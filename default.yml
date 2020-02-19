@@ -18,5 +18,11 @@ Style/DoubleNegation:
   Enabled: false
 Style/Documentation:
   Enabled: false # Disable Style/Documentation because...
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
 Style/StringLiterals:
   EnforcedStyle: double_quotes # Use double quotes ALL THE TIME!!!
