@@ -3,6 +3,7 @@ PATH
   specs:
     boxt_ruby_style_guide (4.1.0)
       rubocop (~> 0.80)
+      rubocop-faker (~> 0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -40,6 +41,8 @@ GEM
       rexml
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
+    rubocop-faker (0.2.0)
+      rubocop (>= 0.74)
     ruby-progressbar (1.10.1)
     simplecov (0.18.2)
       docile (~> 1.1)

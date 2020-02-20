@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   ]
 
   spec.add_dependency "rubocop", "~> 0.80"
+  spec.add_dependency "rubocop-faker", "~> 0.2"
   spec.add_development_dependency "bundler", "~> 2.1"
   spec.add_development_dependency "minitest", "~> 5.14"
   spec.add_development_dependency "minitest-fail-fast", "~> 0.1"
