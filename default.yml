@@ -22,6 +22,8 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes # Use double quotes ALL THE TIME!!!
 # These cops are currently pending and will be enabled by default at some point, but adding for now to stop Rubocop
 # complaining...
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 Lint/RaiseException:
@@ -35,4 +37,6 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
+  Enabled: true
+Style/SlicingWithRange:
   Enabled: true
