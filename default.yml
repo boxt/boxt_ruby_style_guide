@@ -4,14 +4,16 @@ Layout/LineLength:
   Max: 120 # Increase line length to 120
   Exclude:
     - "config/routes.rb"
-Metrics/BlockLength: # Exclude block length for routes and tests
+Metrics/BlockLength:
   Exclude:
+    - "*.gemspec"
+    - "Gemfile"
     - "config/routes.rb"
     - "test/**/*"
-Metrics/ClassLength: # Exclude class length for tests
+Metrics/ClassLength:
   Exclude:
     - "test/**/*"
-Metrics/MethodLength: # Exclude method length for tests
+Metrics/MethodLength:
   Exclude:
     - "test/**/*"
 Style/DoubleNegation:
