@@ -1,0 +1,6 @@
+# Rails specific cops
+Rails/SkipsModelValidations:
+  Exclude:
+    - "db/migrate/**/*"
+    - "lib/tasks/**/*"
+    - "test/**/*"

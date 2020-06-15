@@ -35,17 +35,36 @@ Rails apps should have access to the lint tasks by default.
 
 ## Usage
 
-### Rubocop Config
-
 Add a `.rubocop.yml` file to the root of your project with the following settings:
 
 ```yml
 inherit_gem:
-  boxt-ruby-style-guide:
-    - default.yml
+  boxt_ruby_style_guide:
+    - default.yml # use default cops
+    - pending.yml # use pending cops 
+    - rails.yml # use Rails cops - see Additional Extensions/Cops
 ```
 
-### Lint Tasks
+### Additional Extensions/Cops
+
+The following Rubocop gems are also installed with this gem:
+
+* [rubocop-faker](https://github.com/koic/rubocop-faker)
+* [rubocop-rails](https://github.com/rubocop-hq/rubocop-rails)
+
+To enable add the following to your `.rubocop.yml` file.
+
+```yml
+inherit_gem:
+  boxt_ruby_style_guide:
+  # .... add cops 
+
+require:
+  - rubocop-faker # if your project is using the Faker gem then add this
+  - rubocop-rails # if your project is a Rails app/engine then add this, plus the - rails.yml setting above
+```
+
+## Lint Tasks
 
 Lint tasks to run against files listed as changed by Git.
 
@@ -57,20 +76,20 @@ rake lint:rubocop
 
 If there are no changed files the commands will run against all files.
 
-### Editor Plugins
+## Editor Plugins
 
 There are also some useful Rubocop editor plugins to help with in-editor linting.
 
-#### Atom
+### Atom
 
 - [linter-rubocop](https://atom.io/packages/linter-rubocop)
 - [rubocop-auto-correct](https://atom.io/packages/rubocop-auto-correct)
 
-#### RubyMine
+### RubyMine
 
 - [rubocop](https://www.jetbrains.com/help/ruby/rubocop.html)
 
-#### VSCode
+### VSCode
 
 - [ruby-rubocop](https://marketplace.visualstudio.com/items?itemName=misogi.ruby-rubocop)
 
