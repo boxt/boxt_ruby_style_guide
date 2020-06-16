@@ -18,12 +18,14 @@ Gem::Specification.new do |spec|
   spec.version = BoxtRubyStyleGuide::VERSION
 
   spec.files = Dir[
+    "MIT-LICENSE",
+    "README.md",
+    "Rakefile",
+    "VERSION",
     "default.yml",
     "lib/**/*",
-    "MIT-LICENSE",
-    "Rakefile",
-    "README.md",
-    "VERSION"
+    "pending.yml",
+    "rails.yml"
   ]
 
   spec.add_dependency "rubocop", "0.85.1" # locking rubocop so we can control the pending cops
