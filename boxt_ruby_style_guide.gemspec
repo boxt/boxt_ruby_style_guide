@@ -26,8 +26,9 @@ Gem::Specification.new do |spec|
     "VERSION"
   ]
 
-  spec.add_dependency "rubocop", "~> 0.83"
+  spec.add_dependency "rubocop", "0.85.1" # locking rubocop so we can control the pending cops
   spec.add_dependency "rubocop-faker", "~> 1.0"
+  spec.add_dependency "rubocop-rails", "~> 2.6"
   spec.add_development_dependency "bundler", "~> 2.1"
   spec.add_development_dependency "minitest", "~> 5.14"
   spec.add_development_dependency "minitest-fail-fast", "~> 0.1"
