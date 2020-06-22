@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
     "rails.yml"
   ]
 
-  spec.add_dependency "rubocop", "0.85.1" # locking rubocop so we can control the pending cops
+  spec.add_dependency "rubocop", "0.86.0" # locking rubocop so we can control the pending cops
   spec.add_dependency "rubocop-faker", "~> 1.0"
   spec.add_dependency "rubocop-rails", "~> 2.6"
   spec.add_development_dependency "bundler", "~> 2.1"
