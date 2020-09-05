@@ -1,17 +1,5 @@
-# Rails specific cops
-Rails/ApplicationController:
-  Exclude:
-    - "spec/**/*"
-    - "test/**/*"
-Rails/SkipsModelValidations:
-  Exclude:
-    - "db/migrate/**/*"
-    - "lib/tasks/**/*"
-    - "spec/**/*"
-    - "test/**/*"
-
-# These rails cops are currently pending and will be enabled by default at some point, but adding for now to stop
-# Rubocop or VSCode complaining...
+# These cops are currently pending and will be enabled by default at some point, but adding for now to stop Rubocop
+# or VSCode complaining...
 Rails/ActiveRecordCallbacksOrder:
   Enabled: true
 Rails/AfterCommitOverride:
