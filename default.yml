@@ -15,12 +15,15 @@ Metrics/BlockLength:
     - "*.gemspec"
     - "Gemfile"
     - "config/routes.rb"
+    - "specs/**/*"
     - "test/**/*"
 Metrics/ClassLength:
   Exclude:
+    - "specs/**/*"
     - "test/**/*"
 Metrics/MethodLength:
   Exclude:
+    - "specs/**/*"
     - "test/**/*"
 Style/DoubleNegation:
   Enabled: false
