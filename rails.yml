@@ -1,9 +1,11 @@
 # Rails specific cops
 Rails/ApplicationController:
   Exclude:
+    - "spec/**/*"
     - "test/**/*"
 Rails/SkipsModelValidations:
   Exclude:
     - "db/migrate/**/*"
     - "lib/tasks/**/*"
+    - "spec/**/*"
     - "test/**/*"

@@ -2,3 +2,6 @@ inherit_from:
   - default.yml
   - pending.yml
   # - rails.yml
+
+require:
+  - rubocop-rspec
