@@ -23,10 +23,8 @@ Gem::Specification.new do |spec|
     "README.md",
     "Rakefile",
     "VERSION",
-    "default.yml",
-    "lib/**/*",
-    "pending.yml",
-    "rails.yml"
+    "*.yml",
+    "lib/**/*"
   ]
 
   spec.add_dependency "rubocop", "0.90.0" # locking rubocop so we can control the pending cops
