@@ -9,6 +9,14 @@ Rails/SkipsModelValidations:
     - "lib/tasks/**/*"
     - "spec/**/*"
     - "test/**/*"
+Rails/UnknownEnv:
+  Environments:
+    - cucumber
+    - development
+    - production
+    - qa
+    - test
+    - uat
 
 # These rails cops are currently pending and will be enabled by default at some point, but adding for now to stop
 # Rubocop or VSCode complaining...
