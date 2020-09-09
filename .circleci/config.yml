@@ -1,4 +1,5 @@
-version: 2
+version: 2.1
+
 jobs:
   build:
     parallelism: 1
@@ -34,6 +35,8 @@ jobs:
           command: bundle exec rake test | circleci tests split --split-by=timings
       - run:
           name: Run Rubocop
-          command: bundle exec rake lint:rubocop BASE=master
+          command: |
+            BASE_REVISION=${1:<< pipeline.git.base_revision >>}
+            bundle exec rake lint:rubocop RUBOCOP_LINT_BASE=$BASE_REVISION
       - store_test_results:
           path: test_results

@@ -44,14 +44,14 @@ namespace :lint do
   #   Run a git diff-tree command with the following otions:
   #     -r recursive
   #     --name-only Only return the name of the files
-  #      --diff-filter Filter out results that have been deleted on HEAD
+  #     --diff-filter Filter out results that have been deleted on HEAD
   #
   #   Pipe the output from this command through grep to match only Ruby files in the
   #     desired directories
   #
   # Returns String
   def diff_file_paths
-    base_branch = ENV.fetch("BASE", BASE_BRANCH)
+    base_branch = ENV.fetch("RUBOCOP_LINT_BASE", BASE_BRANCH)
     command = <<~BASH
       git diff-tree -r --name-only --diff-filter=d #{base_branch} HEAD \
         | egrep '#{GREP_PATTERN}'
