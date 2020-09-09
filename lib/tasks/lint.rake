@@ -52,6 +52,7 @@ namespace :lint do
   # Returns String
   def diff_file_paths
     base_branch = ENV.fetch("RUBOCOP_LINT_BASE", BASE_BRANCH)
+    puts "base_branch: #{base_branch}"
     command = <<~BASH
       git diff-tree -r --name-only --diff-filter=d #{base_branch} HEAD \
         | egrep '#{GREP_PATTERN}'
