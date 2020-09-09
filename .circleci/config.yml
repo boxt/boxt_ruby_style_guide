@@ -36,7 +36,8 @@ jobs:
       - run:
           name: Run Rubocop
           command: |
-            BASE_REVISION=${1:<< pipeline.git.base_revision >>}
-            bundle exec rake lint:rubocop RUBOCOP_LINT_BASE=$BASE_REVISION
+            BASE_REVISION=<< pipeline.git.base_revision >>
+            DEFAULT_BASE=master
+            bundle exec rake lint:rubocop RUBOCOP_LINT_BASE=${BASE_REVISION:-$DEFAULT_BASE}
       - store_test_results:
           path: test_results
