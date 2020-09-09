@@ -34,6 +34,6 @@ jobs:
           command: bundle exec rake test | circleci tests split --split-by=timings
       - run:
           name: Run Rubocop
-          command: bundle exec rake lint:rubocop
+          command: bundle exec rake lint:rubocop BASE=master
       - store_test_results:
           path: test_results
