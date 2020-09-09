@@ -35,7 +35,7 @@ namespace :lint do
   #
   # Returns String
   def diff_file_paths
-    base_branch = ENV.fetch("BRANCH", BASE_BRANCH)
+    base_branch = ENV.fetch("BASE", BASE_BRANCH)
     command = <<~BASH
       git diff-tree -r --name-only --diff-filter=d #{base_branch} HEAD \
         | egrep #{GREP_PATTERN}
