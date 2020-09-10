@@ -1,7 +1,3 @@
-inherit_mode:
-  merge:
-    - AllowedNames
-
 AllCops:
   TargetRubyVersion: 2.7.1
   Exclude:
@@ -26,9 +22,6 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   Exclude:
     - "test/**/*"
-Naming/MethodParameterName:
-  AllowedNames:
-    - "..."
 Style/DoubleNegation:
   Enabled: false
 Style/Documentation:
