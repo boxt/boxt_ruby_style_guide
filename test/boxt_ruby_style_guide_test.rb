@@ -11,11 +11,17 @@ class BoxtRubyStyleGuideTest < Minitest::Test
     it "should have a version set" do
       assert ::BoxtRubyStyleGuide::VERSION
     end
+  end
 
-    describe "class methods" do
-      describe ".install_tasks" do
-        it "should do something (or figure out if/how to test)"
-      end
+  describe "::root" do
+    it "returns the root directory for the gem" do
+      expected_path = Pathname.new(File.dirname(__FILE__) + "/..").cleanpath
+      assert_equal(expected_path, BoxtRubyStyleGuide.root)
+    end
+
+    it "returns a Pathname" do
+      assert_kind_of(Pathname, BoxtRubyStyleGuide.root)
     end
   end
+
 end
