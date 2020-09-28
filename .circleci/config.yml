@@ -31,6 +31,9 @@ jobs:
           paths:
             - vendor/bundle
       - run:
+          name: Run rubocop
+          command: bundle exec rubocop
+      - run:
           name: Run tests
           command: bundle exec rake test | circleci tests split --split-by=timings
       - run:

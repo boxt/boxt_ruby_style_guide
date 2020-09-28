@@ -1,29 +1,11 @@
-# Rails specific cops
-Rails/ApplicationController:
-  Exclude:
-    - "spec/**/*"
-    - "test/**/*"
-Rails/SkipsModelValidations:
-  Exclude:
-    - "db/migrate/**/*"
-    - "lib/tasks/**/*"
-    - "spec/**/*"
-    - "test/**/*"
-Rails/UnknownEnv:
-  Environments:
-    - cucumber
-    - development
-    - production
-    - qa
-    - test
-    - uat
-
-# These rails cops are currently pending and will be enabled by default at some point, but adding for now to stop
-# Rubocop or VSCode complaining...
 Rails/ActiveRecordCallbacksOrder:
   Enabled: true
 Rails/AfterCommitOverride:
   Enabled: true
+Rails/ApplicationController:
+  Exclude:
+    - spec/**/*
+    - test/**/*
 Rails/FindById:
   Enabled: true
 Rails/Inquiry:
@@ -44,8 +26,22 @@ Rails/RenderPlainText:
   Enabled: true
 Rails/ShortI18n:
   Enabled: true
+Rails/SkipsModelValidations:
+  Exclude:
+    - db/migrate/**/*
+    - lib/tasks/**/*
+    - spec/**/*
+    - test/**/*
 Rails/SquishedSQLHeredocs:
   Enabled: true
+Rails/UnknownEnv:
+  Environments:
+    - cucumber
+    - development
+    - production
+    - qa
+    - test
+    - uat
 Rails/WhereExists:
   Enabled: true
 Rails/WhereNot:

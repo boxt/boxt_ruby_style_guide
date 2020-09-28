@@ -1,33 +1,39 @@
 AllCops:
-  TargetRubyVersion: 2.7.1
   Exclude:
     - "**/*/schema.rb"
-    - "Gemfile.lock"
-    - "node_modules/**/*"
-    - "tmp/**/*"
-    - "vendor/**/*"
+    - Gemfile.lock
+    - node_modules/**/*
+    - tmp/**/*
+    - vendor/**/*
+  TargetRubyVersion: 2.7.1
 Layout/LineLength:
-  Max: 120 # Increase line length to 120
   Exclude:
-    - "config/routes.rb"
+    - config/routes.rb
+  Max: 120
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/**/*
 Metrics/BlockLength:
   Exclude:
     - "*.gemspec"
-    - "Gemfile"
-    - "config/routes.rb"
-    - "spec/**/*"
-    - "test/**/*"
+    - Gemfile
+    - config/routes.rb
+    - db/migrate/**/*
+    - spec/**/*
+    - test/**/*
 Metrics/ClassLength:
   Exclude:
-    - "spec/**/*"
-    - "test/**/*"
+    - db/migrate/**/*
+    - spec/**/*
+    - test/**/*
 Metrics/MethodLength:
   Exclude:
-    - "spec/**/*"
-    - "test/**/*"
+    - db/migrate/**/*
+    - spec/**/*
+    - test/**/*
+Style/Documentation:
+  Enabled: false
 Style/DoubleNegation:
   Enabled: false
-Style/Documentation:
-  Enabled: false # Disable Style/Documentation because...
 Style/StringLiterals:
-  EnforcedStyle: double_quotes # Use double quotes ALL THE TIME!!!
+  EnforcedStyle: double_quotes

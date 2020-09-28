@@ -2,10 +2,12 @@
 
 require "spec_helper"
 
-describe(BoxtRubyStyleGuide) do
-  it("is something") { expect(described_class).to(be_a(Module)) }
+describe BoxtRubyStyleGuide do
+  describe "VERSION" do
+    let(:current_version) { File.read("VERSION").split("\n").first }
 
-  it("has a version set") do
-    expect(::BoxtRubyStyleGuide::VERSION).to(be_truthy)
+    it "is set from the VERSION file" do
+      expect(::BoxtRubyStyleGuide::VERSION).to eq(current_version)
+    end
   end
 end
