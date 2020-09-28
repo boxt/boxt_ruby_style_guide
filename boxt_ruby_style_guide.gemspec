@@ -27,11 +27,12 @@ Gem::Specification.new do |spec|
     "lib/**/*"
   ]
 
-  spec.add_dependency "rubocop", "0.90.0" # locking rubocop so we can control the pending cops
-  spec.add_dependency "rubocop-faker", "~> 1.0"
-  spec.add_dependency "rubocop-rails", "~> 2.6"
-  spec.add_dependency "rubocop-rspec", "~> 1.43"
+  # locking rubocop versions so we can control the pending cops
+  spec.add_dependency "rubocop", "0.92.0"
   spec.add_development_dependency "rails", "> 5"
+  spec.add_dependency "rubocop-faker", "1.1.0"
+  spec.add_dependency "rubocop-rails", "2.8.1"
+  spec.add_dependency "rubocop-rspec", "1.43.2"
   spec.add_development_dependency "bundler", "~> 2.1"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.9"
