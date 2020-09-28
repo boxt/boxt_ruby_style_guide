@@ -23,5 +23,4 @@ class BoxtRubyStyleGuideTest < Minitest::Test
       assert_kind_of(Pathname, BoxtRubyStyleGuide.root)
     end
   end
-
 end
