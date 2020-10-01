@@ -7,6 +7,8 @@ require "rspec"
 require "simplecov"
 
 SimpleCov.start do
+  add_filter "lib/tasks" # Added for now, may want to actually include this though
+
   minimum_coverage 100
 end
 
