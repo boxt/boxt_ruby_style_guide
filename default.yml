@@ -5,7 +5,7 @@ AllCops:
     - node_modules/**/*
     - tmp/**/*
     - vendor/**/*
-  TargetRubyVersion: 2.7.1
+  TargetRubyVersion: 2.7.2
 Layout/LineLength:
   Exclude:
     - config/routes.rb
