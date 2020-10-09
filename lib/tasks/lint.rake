@@ -28,7 +28,7 @@ GREP_PATTERN = <<~STRING.delete("\n").delete("\s")
     (#{RUBY_DIRS.join('|')})\\/.+\\.(rb|rake)
     |^
     (Gemfile|Rakefile|.+\\.gemspec)
-  )
+  \Z)
 STRING
 
 namespace :lint do
