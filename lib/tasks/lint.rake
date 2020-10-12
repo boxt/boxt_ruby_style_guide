@@ -23,18 +23,25 @@ RUBY_DIRS = %w[app lib test spec].freeze
 # - test/**/*.{rb,rake}
 # - spec/**/*.{rb,rake}
 #
-GREP_PATTERN = <<~STRING.delete("\n")
+GREP_PATTERN = <<~STRING.delete("\n").delete("\s")
   (
     (#{RUBY_DIRS.join('|')})\\/.+\\.(rb|rake)
     |^
     (Gemfile|Rakefile|.+\\.gemspec)
-  )
+  \Z)
 STRING
 
 namespace :lint do
   desc "Runs rubocop against all files with committed changes different from base branch"
   task :rubocop do
-    exec("rubocop #{diff_file_paths};")
+    exec(<<~BASH)
+      RUBOCOP_CHANGED_FILES=`#{diff_file_paths}`
+      if [ -z "$RUBOCOP_CHANGED_FILES" ]; then
+        echo "No matching Ruby files changed"
+      else
+        bundle exec rubocop $RUBOCOP_CHANGED_FILES
+      fi
+    BASH
   end
 
   private
@@ -52,10 +59,6 @@ namespace :lint do
   # Returns String
   def diff_file_paths
     base_branch = ENV.fetch("RUBOCOP_LINT_BASE", BASE_BRANCH)
-    command = <<~BASH
-      git diff --name-only #{base_branch} HEAD | egrep '#{GREP_PATTERN}'
-    BASH
-    file_paths = `#{command}`
-    file_paths.gsub(/\n|\r/, " ")
+    "git diff -r --name-only --diff-filter=d #{base_branch} | egrep '#{GREP_PATTERN}'"
   end
 end
