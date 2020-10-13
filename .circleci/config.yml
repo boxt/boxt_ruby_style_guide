@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   heroku: circleci/heroku@1.0.1
-  rubocop: boxt/rubocop@0.2.0
+  rubocop: boxt/rubocop@0.2.1
   bundler: boxt/bundler@0.2.0
 
 commands:
