@@ -3,21 +3,7 @@ orbs:
   heroku: circleci/heroku@1.0.1
   rubocop: boxt/rubocop@0.2.1
   bundler: boxt/bundler@0.2.0
-
-commands:
-  repo-cache-read:
-    steps:
-      - restore_cache:
-          keys:
-            - v2-repo-{{ .Environment.CIRCLE_SHA1 }}
-
-  repo-cache-write:
-    steps:
-      - save_cache:
-          key: v2-repo-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - ~/boxt_ruby_style_guide
-
+  git: boxt/git@0.1.0
 
 defaults: &defaults
   environment:
@@ -34,7 +20,8 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - repo-cache-write
+      - git/cache-write:
+          path: ~/boxt_ruby_style_guide
 
       - bundler/cache-read
       - bundler/install
@@ -44,7 +31,7 @@ jobs:
     <<: *defaults
 
     steps:
-      - repo-cache-read
+      - git/cache-read
       - bundler/cache-read
       - rubocop/lint:
           base: "master"
@@ -57,7 +44,7 @@ jobs:
   lint_ruby:
     <<: *defaults
     steps:
-      - repo-cache-read
+      - git/cache-read
       - bundler/cache-read
       - rubocop/lint:
           base: "master"
@@ -65,7 +52,7 @@ jobs:
   security_audit:
     <<: *defaults
     steps:
-      - repo-cache-read
+      - git/cache-read
       - bundler/cache-read
       - bundler/audit
       - run:
