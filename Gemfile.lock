@@ -66,7 +66,6 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
     ast (2.4.1)
-    brakeman (4.10.0)
     builder (3.2.4)
     bundler-audit (0.7.0.1)
       bundler (>= 1.2.0, < 3)
@@ -197,7 +196,6 @@ PLATFORMS
 
 DEPENDENCIES
   boxt_ruby_style_guide!
-  brakeman (~> 4.10.0)
   bundler (~> 2.1)
   bundler-audit (~> 0.7.0.1)
   rails (> 5, < 7)
