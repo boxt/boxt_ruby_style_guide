@@ -1,46 +1,74 @@
 version: 2.1
+orbs:
+  heroku: circleci/heroku@1.0.1
+  rubocop: boxt/rubocop@0.2.1
+  bundler: boxt/bundler@0.2.0
+  git: boxt/git@0.1.0
+
+defaults: &defaults
+  environment:
+    TZ: "Europe/London"
+  working_directory: ~/boxt_ruby_style_guide
+  docker:
+    - image: circleci/ruby:2.7.1
+      environment:
+        RAILS_ENV: test
+        TZ: "Europe/London"
 
 jobs:
-  build:
-    parallelism: 1
-    docker:
-      - image: circleci/ruby:2.7.1
-        environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: vendor/bundle
+  setup:
+    <<: *defaults
     steps:
       - checkout
-      - run:
-          name: Configure Bundler
-          command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            gem install bundler
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - restore_cache:
-          keys:
-            - boxt-ruby-style-guide-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Bundle Install
-          command: bundle install
-      - save_cache:
-          key: boxt-ruby-style-guide-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-      - run:
-          name: Run rubocop
-          command: bundle exec rubocop
+      - git/cache-write:
+          path: ~/boxt_ruby_style_guide
+
+      - bundler/cache-read
+      - bundler/install
+      - bundler/cache-write
+
+  test_ruby:
+    <<: *defaults
+
+    steps:
+      - git/cache-read
+      - bundler/cache-read
+      - rubocop/lint:
+          base: "master"
       - run:
           name: Run tests
           command: bundle exec rake test | circleci tests split --split-by=timings
-      - run:
-          name: Run Rubocop
-          command: |
-            BASE_REVISION=<< pipeline.git.base_revision >>
-            DEFAULT_BASE=master
-            bundle exec rake lint:rubocop RUBOCOP_LINT_BASE=${BASE_REVISION:-$DEFAULT_BASE}
       - store_test_results:
           path: test_results
+
+  lint_ruby:
+    <<: *defaults
+    steps:
+      - git/cache-read
+      - bundler/cache-read
+      - rubocop/lint:
+          base: "master"
+
+  security_audit:
+    <<: *defaults
+    steps:
+      - git/cache-read
+      - bundler/cache-read
+      - bundler/audit
+    
+workflows:
+  build_and_test:
+    jobs:
+      - setup
+      - test_ruby:
+          requires:
+            - setup
+      - lint_ruby:
+          requires:
+            - setup
+      - test_ruby:
+          requires:
+            - setup
+      - security_audit:
+          requires:
+            - setup
