@@ -55,10 +55,7 @@ jobs:
       - git/cache-read
       - bundler/cache-read
       - bundler/audit
-      - run:
-          name: "Brakeman"
-          command: bundle exec brakeman
-
+    
 workflows:
   build_and_test:
     jobs:
