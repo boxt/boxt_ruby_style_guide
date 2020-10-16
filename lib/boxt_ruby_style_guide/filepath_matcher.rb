@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module BoxtRubyStyleGuide
+  ##
+  # Sanitizes a list of filepaths based on Rubocops exclusions
   class FilepathMatcher
     require "yaml"
 
