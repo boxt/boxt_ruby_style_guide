@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module BoxtRubyStyleGuide
+  # Returns a list of files that have changed, as detected by `git-diff`
+  #
   # TODO: Write tests for this to ensure we're pulling the desired diff files
   # see: https://github.com/ruby-git/ruby-git
   class GitDiff
@@ -19,14 +21,6 @@ module BoxtRubyStyleGuide
 
     ##
     # A list of the local file paths of Ruby files with committed changes.
-    #
-    #   Run a git diff-tree command with the following otions:
-    #     -r recursive
-    #     --name-only Only return the name of the files
-    #     --diff-filter Filter out results that have been deleted on HEAD
-    #
-    #   Pipe the output from this command through grep to match only Ruby files in the
-    #     desired directories
     #
     # Returns Array
     def all
