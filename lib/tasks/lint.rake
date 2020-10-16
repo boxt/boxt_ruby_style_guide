@@ -2,6 +2,7 @@
 
 require "boxt_ruby_style_guide"
 require "rubocop"
+require 'yaml'
 
 ##
 # The base branch to compare HEAD with for changes
@@ -12,30 +13,29 @@ BASE_BRANCH = "develop"
 RUBY_DIRS = %w[app lib test spec].freeze
 
 ##
-# Grep file pattern to make sure we only check files that are Ruby files
-# This pattern matches the following:
+# Array of file patterns to make sure we only check files that are Ruby files
 #
-# - Gemfile
-# - Rakefile
-# - *.gemspec
-# - app/**/*.{rb,rake}
-# - lib/**/*.{rb,rake}
-# - test/**/*.{rb,rake}
-# - spec/**/*.{rb,rake}
-#
-GREP_PATTERN = <<~STRING.delete("\n").delete("\s")
-  (
-    (#{RUBY_DIRS.join('|')})\\/.+\\.(rb|rake)
-    |^
-    (Gemfile|Rakefile|.+\\.gemspec)
-  \Z)
-STRING
+INCLUDE_PATTERNS = %w[
+  Gemfile
+  Rakefile
+  *.gemspec
+  app/**/*.rb,rake}
+  lib/**/*.{rb,rake}
+  test/**/*.{rb,rake}
+  spec/**/*.{rb,rake}
+]
+
+##
+# Array of the excluded files from Rubocop default.yml config
+EXCLUDE_PATTERNS = YAML.load_file(
+  BoxtRubyStyleGuide.root.join("default.yml")
+).dig('AllCops', 'Exclude')
 
 namespace :lint do
   desc "Runs rubocop against all files with committed changes different from base branch"
   task :rubocop do
     exec(<<~BASH)
-      RUBOCOP_CHANGED_FILES=`#{diff_file_paths}`
+      RUBOCOP_CHANGED_FILES="#{sanitized_file_paths.join(" ")}"
       if [ -z "$RUBOCOP_CHANGED_FILES" ]; then
         echo "No matching Ruby files changed"
       else
@@ -45,6 +45,23 @@ namespace :lint do
   end
 
   private
+
+  # Compare a given filepath with a grep-style filename pattern
+  #
+  # Returns Boolean
+  def match_filepath_with_pattern(filepath, pattern)
+    File.fnmatch(pattern, filepath)
+  end
+
+  # Returns Array
+  def sanitized_file_paths
+    proc = method(:match_filepath_with_pattern).to_proc
+    diff_file_paths.select do |filepath|
+      filepath_proc = proc.curry.call(filepath)
+      INCLUDE_PATTERNS.detect { |pattern| filepath_proc.call(pattern) } &&
+        EXCLUDE_PATTERNS.none? { |pattern| filepath_proc.call(pattern) }
+    end
+  end
 
   # A list of the local file paths of Ruby files with committed changes.
   #
@@ -56,9 +73,9 @@ namespace :lint do
   #   Pipe the output from this command through grep to match only Ruby files in the
   #     desired directories
   #
-  # Returns String
+  # Returns Array
   def diff_file_paths
     base_branch = ENV.fetch("RUBOCOP_LINT_BASE", BASE_BRANCH)
-    "git diff -r --name-only --diff-filter=d #{base_branch} | egrep '#{GREP_PATTERN}'"
+    `git diff -r --name-only --diff-filter=d #{base_branch}`.to_s.split
   end
 end
