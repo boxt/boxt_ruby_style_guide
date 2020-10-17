@@ -8,7 +8,7 @@ module BoxtRubyStyleGuide
 
     ##
     # Compare a given filepath with a grep-style filename pattern
-    FILPATH_PATTERN_MATCH = proc do |filepath, pattern|
+    FILEPATH_PATTERN_MATCH = proc do |filepath, pattern|
       File.fnmatch(pattern, filepath)
     end
 
@@ -36,7 +36,7 @@ module BoxtRubyStyleGuide
 
     def all_matches
       filepaths.select do |filepath|
-        filepath_proc = FILPATH_PATTERN_MATCH.curry.call(filepath)
+        filepath_proc = FILEPATH_PATTERN_MATCH.curry.call(filepath)
         INCLUDE_PATTERNS.any?(filepath_proc) && EXCLUDE_PATTERNS.none?(filepath_proc)
       end
     end
