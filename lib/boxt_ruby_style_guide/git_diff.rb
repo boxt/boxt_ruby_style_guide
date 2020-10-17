@@ -11,7 +11,7 @@ module BoxtRubyStyleGuide
     ##
     # List of Git statuses we should test
     # See: https://git-scm.com/docs/git-status#_short_format
-    TEST_STATUSES = %w[M A R C U].freeze
+    TEST_STATUSES = %w[M A C U].freeze
 
     attr_reader :base
 
@@ -25,16 +25,14 @@ module BoxtRubyStyleGuide
     # Returns Array
     def all
       @all ||= begin
-        git.diff(base).name_status
-           .select { |_filepath, status| TEST_STATUSES.include?(status) }
-           .keys
+        git.diff(base).name_status.select { |_, stat| TEST_STATUSES.include?(stat) }.keys
       end
     end
 
     private
 
     def git
-      @git ||= Git.open "."
+      @git ||= Git.open(".")
     end
   end
 end
