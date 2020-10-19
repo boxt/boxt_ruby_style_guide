@@ -41,10 +41,10 @@ Add a `.rubocop.yml` file to the root of your project with the following setting
 inherit_gem:
   boxt_ruby_style_guide:
     - default.yml # use default cops
-    - pending.yml # use pending cops 
+    - pending.yml # use pending cops
     - rails.yml # use Rails cops - see Additional Extensions/Cops
-    - rails-pending.yml # use pending rails cops 
-    - rspec.yml # use rspec cops 
+    - rails-pending.yml # use pending rails cops
+    - rspec.yml # use rspec cops
 ```
 
 ### Additional Extensions/Cops
@@ -60,7 +60,7 @@ To enable add the following to your `.rubocop.yml` file.
 ```yml
 inherit_gem:
   boxt_ruby_style_guide:
-  # .... add cops 
+  # .... add cops
 
 require:
   - rubocop-faker # if your project is using the Faker gem then add this
@@ -75,8 +75,16 @@ Lint tasks to run against files listed as changed by Git.
 To run `rubocop` against any changed files use:
 
 ```sh
-rake lint:rubocop
+rake lint:rubocop RUBOCOP_LINT_BASE=your-base-branch
 ```
+
+To run `rubocop` with autofix, use one of the following:
+
+```sh
+rake lint:rubocop_a RUBOCOP_LINT_BASE=your-base-branch
+rake lint:rubocop_A RUBOCOP_LINT_BASE=your-base-branch
+```
+
 
 If there are no changed files the commands will run against all files.
 
