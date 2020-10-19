@@ -11,6 +11,12 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
   let!(:git) do
     setup_test_repo
     Git.open(current_repo_path).tap do |git_obj|
+      if git_obj.config('user.name').blank?
+        git_obj.config('user.name', 'Test Git Person')
+      end
+      if git_obj.config('user.email').blank?
+        git_obj.config('user.email', 'email@email.com')
+      end
       git_obj.add("README.md")
       git_obj.commit("Save README.md")
       git_obj.branch("feature/new-branch").checkout
