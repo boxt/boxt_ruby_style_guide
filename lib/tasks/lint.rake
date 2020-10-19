@@ -38,7 +38,7 @@ namespace :lint do
     if sanitized_file_paths.any?
       # Sanitize args to make sure only a single "a" or "A" is accepted
       auto_flag = AUTO_REGEX.match(args[:auto_flag])
-      exec("bundle exec rubocop $RUBOCOP_CHANGED_FILES #{auto_flag}".strip)
+      exec("bundle exec rubocop #{sanitized_file_paths.join(" ")} #{auto_flag}".strip)
     else
       puts "No matching Ruby files changed"
     end
