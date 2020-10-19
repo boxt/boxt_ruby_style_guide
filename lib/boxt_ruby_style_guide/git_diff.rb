@@ -11,11 +11,11 @@ module BoxtRubyStyleGuide
     ##
     # List of Git statuses we should test
     # See: https://git-scm.com/docs/git-status#_short_format
-    TEST_STATUSES = %w[M A C U].freeze
+    TEST_STATUSES = %w[M A U].freeze
 
     attr_reader :base
 
-    def initialize(base)
+    def initialize(base = "master")
       @base = base
     end
 
