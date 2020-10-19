@@ -1,10 +1,10 @@
 AllCops:
   Exclude:
     - "**/*/schema.rb"
-    - Gemfile.lock
-    - node_modules/**/*
-    - tmp/**/*
-    - vendor/**/*
+    - "Gemfile.lock"
+    - "node_modules/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
   TargetRubyVersion: 2.7.1
 Layout/LineLength:
   Exclude:
