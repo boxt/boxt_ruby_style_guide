@@ -55,7 +55,7 @@ jobs:
       - git/cache-read
       - bundler/cache-read
       - bundler/audit
-    
+
 workflows:
   build_and_test:
     jobs:
