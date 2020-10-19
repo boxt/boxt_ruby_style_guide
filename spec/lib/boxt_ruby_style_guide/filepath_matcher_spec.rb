@@ -42,8 +42,8 @@ RSpec.describe BoxtRubyStyleGuide::FilepathMatcher do
     context "when filepath is explicitly excluded" do
       let(:test_filepaths) do
         %w[
-          test/models/schema.rb
           db/schema.rb
+          test/dummy/db/schema.rb
           Gemfile.lock
           node_modules/my_lib/init.rb
           tmp/cache/my_file.rb
