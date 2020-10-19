@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    boxt_ruby_style_guide (7.6.0)
+    boxt_ruby_style_guide (7.7.0)
       rubocop (= 0.92.0)
       rubocop-faker (= 1.1.0)
       rubocop-rails (= 2.8.1)
@@ -154,7 +154,7 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.7.1)
+    rubocop-ast (0.8.0)
       parser (>= 2.7.1.5)
     rubocop-faker (1.1.0)
       faker (>= 2.12.0)
