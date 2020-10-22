@@ -3,59 +3,53 @@
 require "boxt_ruby_style_guide"
 require "rubocop"
 
+require "boxt_ruby_style_guide/git_diff"
+require "boxt_ruby_style_guide/filepath_matcher"
+
 ##
 # The base branch to compare HEAD with for changes
 BASE_BRANCH = "develop"
 
 ##
-# Directories containing Ruby files to lint
-RUBY_DIRS = %w[app lib test spec].freeze
+# Name of the master Rubocop lint task to run
+RUBOCOP_TASK_NAME = :"lint:execute_rubocop"
 
 ##
-# Grep file pattern to make sure we only check files that are Ruby files
-# This pattern matches the following:
-#
-# - Gemfile
-# - Rakefile
-# - *.gemspec
-# - app/**/*.{rb,rake}
-# - lib/**/*.{rb,rake}
-# - test/**/*.{rb,rake}
-# - spec/**/*.{rb,rake}
-#
-GREP_PATTERN = <<~STRING.delete("\n")
-  (
-    (#{RUBY_DIRS.join('|')})\\/.+\\.(rb|rake)
-    |^
-    (Gemfile|Rakefile|.+\\.gemspec)
-  )
-STRING
+# Pattern for matching autofix options
+AUTO_REGEX = /\A-a\Z/i.freeze
 
 namespace :lint do
   desc "Runs rubocop against all files with committed changes different from base branch"
   task :rubocop do
-    exec("rubocop #{diff_file_paths};")
+    Rake::Task[RUBOCOP_TASK_NAME].invoke
   end
 
-  private
-
-  # A list of the local file paths of Ruby files with committed changes.
-  #
-  #   Run a git diff-tree command with the following otions:
-  #     -r recursive
-  #     --name-only Only return the name of the files
-  #     --diff-filter Filter out results that have been deleted on HEAD
-  #
-  #   Pipe the output from this command through grep to match only Ruby files in the
-  #     desired directories
-  #
-  # Returns String
-  def diff_file_paths
-    base_branch = ENV.fetch("RUBOCOP_LINT_BASE", BASE_BRANCH)
-    command = <<~BASH
-      git diff --name-only #{base_branch} HEAD | egrep '#{GREP_PATTERN}'
-    BASH
-    file_paths = `#{command}`
-    file_paths.gsub(/\n|\r/, " ")
+  desc "Runs rubocop against all files using -a (soft autofix) option"
+  task :rubocop_a do
+    Rake::Task[RUBOCOP_TASK_NAME].invoke("-a")
   end
+
+  desc "Runs rubocop against all files using -A (hard autofix) option"
+  task :rubocop_A do
+    Rake::Task[RUBOCOP_TASK_NAME].invoke("-A")
+  end
+
+  task :execute_rubocop, [:auto_flag] do |_t, args|
+    if sanitized_file_paths.any?
+      # Sanitize args to make sure only a single "a" or "A" is accepted
+      auto_flag = AUTO_REGEX.match(args[:auto_flag])
+      exec("bundle exec rubocop #{sanitized_file_paths.join(" ")} #{auto_flag}".strip)
+    else
+      puts "No matching Ruby files changed"
+    end
+  end
+end
+
+private
+
+# Returns Array
+def sanitized_file_paths
+  base = ENV.fetch("RUBOCOP_LINT_BASE", BASE_BRANCH)
+  changed_files = BoxtRubyStyleGuide::GitDiff.new(base).all
+  BoxtRubyStyleGuide::FilepathMatcher.new(*changed_files).all_matches
 end
