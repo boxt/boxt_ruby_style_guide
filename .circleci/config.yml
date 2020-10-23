@@ -10,7 +10,7 @@ defaults: &defaults
     TZ: "Europe/London"
   working_directory: ~/boxt_ruby_style_guide
   docker:
-    - image: circleci/ruby:2.7.1
+    - image: circleci/ruby:2.7.2
       environment:
         RAILS_ENV: test
         TZ: "Europe/London"
