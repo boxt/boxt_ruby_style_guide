@@ -24,13 +24,6 @@ And then execute:
 bundle
 ```
 
-To make the lint rake tasks available to non Rails apps and gems, add the following to the project's `Rakefile`:
-
-```ruby
-require "boxt_ruby_style_guide"
-BoxtRubyStyleGuide.install_tasks
-```
-
 Rails apps should have access to the lint tasks by default.
 
 ## Usage
