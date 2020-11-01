@@ -7,19 +7,13 @@ RSpec.describe BoxtRubyStyleGuide::FilepathMatcher do
   describe "#all_matches" do
     subject { described_class.new(*test_filepaths).all_matches }
 
-    let(:test_filepaths) { [] }
-
     context "when filepath is special name" do
       let(:test_filepaths) { ["Gemfile", "Rakefile", "foo.gemspec"] }
 
       it { is_expected.to include("Gemfile") }
-
       it { is_expected.to include("Rakefile") }
-
       it { is_expected.to include("foo.gemspec") }
-
       it { is_expected.not_to include("Foobar") }
-
       it { is_expected.not_to include("Procfile") }
     end
 
@@ -27,7 +21,6 @@ RSpec.describe BoxtRubyStyleGuide::FilepathMatcher do
       let(:test_filepaths) { ["app/models/yep.rb", "app/models/nope.js"] }
 
       it { is_expected.to include("app/models/yep.rb") }
-
       it { is_expected.not_to include("app/models/nope.js") }
     end
 
@@ -35,7 +28,6 @@ RSpec.describe BoxtRubyStyleGuide::FilepathMatcher do
       let(:test_filepaths) { ["test/models/yep.rb", "test/models/nope.js"] }
 
       it { is_expected.to include("test/models/yep.rb") }
-
       it { is_expected.not_to include("test/models/nope.js") }
     end
 

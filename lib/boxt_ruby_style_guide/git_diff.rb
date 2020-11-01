@@ -13,10 +13,10 @@ module BoxtRubyStyleGuide
     # See: https://git-scm.com/docs/git-status#_short_format
     TEST_STATUSES = %w[M A U].freeze
 
-    attr_reader :base
+    attr_reader :base_branch
 
-    def initialize(base = "master")
-      @base = base
+    def initialize(base_branch: "master")
+      @base_branch = base_branch
     end
 
     ##
@@ -25,7 +25,7 @@ module BoxtRubyStyleGuide
     # Returns Array
     def all
       @all ||= begin
-        git.diff(base).name_status.select { |_, stat| TEST_STATUSES.include?(stat) }.keys
+        git.diff(base_branch).name_status.select { |_, stat| TEST_STATUSES.include?(stat) }.keys
       end
     end
 
