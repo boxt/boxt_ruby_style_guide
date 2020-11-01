@@ -5,18 +5,13 @@ require "boxt_ruby_style_guide/git_diff"
 
 RSpec.describe BoxtRubyStyleGuide::GitDiff do
   let(:current_repo_path) { repo_path(repo_name) }
-
   let(:repo_name) { "test-#{rand(1_000).to_i}" }
 
   let!(:git) do
     setup_test_repo
     Git.open(current_repo_path).tap do |git_obj|
-      if git_obj.config('user.name').blank?
-        git_obj.config('user.name', 'Test Git Person')
-      end
-      if git_obj.config('user.email').blank?
-        git_obj.config('user.email', 'email@email.com')
-      end
+      git_obj.config("user.name", "Test Git Person") if git_obj.config("user.name").blank?
+      git_obj.config("user.email", "email@email.com") if git_obj.config("user.email").blank?
       git_obj.add("README.md")
       git_obj.commit("Save README.md")
       git_obj.branch("feature/new-branch").checkout
@@ -28,8 +23,6 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
   end
 
   describe "#all" do
-    subject { described_class.new(*test_filepaths).all }
-
     context "when file is state U (modified not committed)" do
       before do
         update_file(current_repo_path, "README.md", <<~MARKDOWN)
