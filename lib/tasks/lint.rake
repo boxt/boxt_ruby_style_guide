@@ -47,7 +47,7 @@ end
 
 private
 
-# Returns Array
+# Returns an array of files
 def sanitized_file_paths
   base = ENV.fetch("RUBOCOP_LINT_BASE", BASE_BRANCH)
   changed_files = BoxtRubyStyleGuide::GitDiff.new(base).all
