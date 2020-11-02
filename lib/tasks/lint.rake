@@ -23,7 +23,7 @@ namespace :lint do
       auto_flag_opt = ARGV.select { |a| ["-a", "-A"].include?(a) }.first
       exec("bundle exec rubocop #{file_paths.join(' ')} #{auto_flag_opt}".strip)
     else
-      puts "No matching Ruby files changed"
+      puts "No Ruby files changed"
     end
   end
 end
