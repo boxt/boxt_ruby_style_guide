@@ -8,7 +8,7 @@ require "boxt_ruby_style_guide/filepath_matcher"
 
 ##
 # The default base branch to compare HEAD with for changes
-DEFAULT_BASE_BRANCH = "develop"
+DEFAULT_BASE_BRANCH = "master"
 
 ##
 # Name of the master Rubocop lint task to run
@@ -48,16 +48,18 @@ end
 private
 
 # Attempts to find the base branch of the current commit
-def base_branch
-  branch = exec("git log --pretty=format:'%D' HEAD^ | grep 'origin/' | head -n1 | sed 's@origin/@@' | sed 's@,.*@@'")
+def find_base_branch
+  branch = `git log --pretty=format:'%D' HEAD^ | grep 'origin/' | head -n1 | sed 's@origin/@@' | sed 's@,.*@@'`
   branch.gsub("\n", "")
-rescue StandardError
+rescue StandardError => e
+  puts "Error finding base branch: #{e}"
   DEFAULT_BASE_BRANCH
 end
 
 # Returns Array
 def sanitized_file_paths
-  # base_branch = ENV.fetch("RUBOCOP_LINT_BASE", DEFAULT_BASE_BRANCH)
+  base_branch = find_base_branch
+  puts "Base branch set to #{base_branch}"
   changed_files = BoxtRubyStyleGuide::GitDiff.new(base_branch: base_branch).all
   BoxtRubyStyleGuide::FilepathMatcher.new(*changed_files).all_matches
 end

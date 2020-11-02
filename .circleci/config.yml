@@ -1,9 +1,8 @@
 version: 2.1
 orbs:
-  heroku: circleci/heroku@1.0.1
-  rubocop: boxt/rubocop@0.2.1
   bundler: boxt/bundler@0.2.0
-  git: boxt/git@0.1.0
+  git: boxt/git@0.2.2
+  rubocop: boxt/rubocop@dev:0.3.0
 
 defaults: &defaults
   environment:
@@ -22,19 +21,15 @@ jobs:
       - checkout
       - git/cache-write:
           path: ~/boxt_ruby_style_guide
-
       - bundler/cache-read
       - bundler/install
       - bundler/cache-write
 
   test_ruby:
     <<: *defaults
-
     steps:
       - git/cache-read
       - bundler/cache-read
-      - rubocop/lint:
-          base: "master"
       - run:
           name: Run tests
           command: bundle exec rake test | circleci tests split --split-by=timings
@@ -46,8 +41,7 @@ jobs:
     steps:
       - git/cache-read
       - bundler/cache-read
-      - rubocop/lint:
-          base: "master"
+      - rubocop/lint
 
   security_audit:
     <<: *defaults
@@ -60,9 +54,6 @@ workflows:
   build_and_test:
     jobs:
       - setup
-      - test_ruby:
-          requires:
-            - setup
       - lint_ruby:
           requires:
             - setup
