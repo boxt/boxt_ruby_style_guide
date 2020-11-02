@@ -17,10 +17,14 @@ namespace :lint do
   desc "Runs rubocop against all files with committed changes different from base branch"
   task :rubocop do
     file_paths = sanitized_file_paths
-    puts "No matching Ruby files changed" and return unless file_paths.any?
+    puts "File paths: #{file_paths.join(', ')}"
 
-    auto_flag_opt = ARGV.select { |a| ["-a", "-A"].include?(a) }.first
-    exec("bundle exec rubocop #{file_paths.join(' ')} #{auto_flag_opt}".strip)
+    if file_paths.any?
+      auto_flag_opt = ARGV.select { |a| ["-a", "-A"].include?(a) }.first
+      exec("bundle exec rubocop #{file_paths.join(' ')} #{auto_flag_opt}".strip)
+    else
+      puts "No matching Ruby files changed"
+    end
   end
 end
 
