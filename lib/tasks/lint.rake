@@ -38,7 +38,7 @@ end
 # Returns Array
 def sanitized_file_paths
   base_branch = find_base_branch
-  puts "Base branch set to #{base_branch}"
+  puts "Checking '#{base_branch}' for changed files"
   changed_files = BoxtRubyStyleGuide::GitDiff.new(base_branch: base_branch).all
   BoxtRubyStyleGuide::FilepathMatcher.new(*changed_files).all_matches
 end
