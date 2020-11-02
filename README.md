@@ -65,17 +65,9 @@ require:
 
 Lint tasks to run against files listed as changed by Git.
 
-### lint:base_branch
-
-Show the Git base branch name that your current branch is based off.
-
-```sh
-rake lint:base_branch
-```
-
 ### lint:rubocop
 
-Runs `rubocop` against any changed files compared with the base branch.
+Runs `rubocop` against any changed Ruby files.
 
 ```sh
 rake lint:rubocop
@@ -88,7 +80,7 @@ rake lint:rubocop -a # soft autocorrect failures
 rake lint:rubocop -A # hard autocorrect failures
 ```
 
-If there are no changed files the command will run against all files.
+If there are no changed files that need linting the command will run against all files.
 
 ## Editor Plugins
 

@@ -6,14 +6,6 @@ require "boxt_ruby_style_guide/filepath_matcher"
 require "rubocop"
 
 namespace :lint do
-  desc "Attempt to shell out to find the git base branch"
-  task :base_branch do
-    branch = `git log --pretty=format:'%D' HEAD^ | grep 'origin/' | head -n1 | sed 's@origin/@@' | sed 's@,.*@@'`
-    puts branch.gsub("\n", "")
-  rescue StandardError
-    puts "master"
-  end
-
   desc "Runs rubocop against all files with committed changes different from base branch"
   task :rubocop do
     file_paths = sanitized_file_paths
@@ -30,15 +22,8 @@ end
 
 private
 
-# Attempts to find the base branch of the current commit
-def find_base_branch
-  `bundle exec rake lint:base_branch`.gsub("\n", "")
-end
-
-# Returns Array
+# Returns Array of changed Ruby files to pass to rubocop
 def sanitized_file_paths
-  base_branch = find_base_branch
-  puts "Checking '#{base_branch}' for changed files"
-  changed_files = BoxtRubyStyleGuide::GitDiff.new(base_branch: base_branch).all
+  changed_files = BoxtRubyStyleGuide::GitDiff.new(base_branch: "origin/HEAD^").all
   BoxtRubyStyleGuide::FilepathMatcher.new(*changed_files).all_matches
 end
