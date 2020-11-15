@@ -4,7 +4,6 @@ require "boxt_ruby_style_guide"
 require "boxt_ruby_style_guide/git_diff"
 require "boxt_ruby_style_guide/filepath_matcher"
 require "rubocop"
-require "byebug"
 
 namespace :lint do
   desc "Runs rubocop against all files with committed changes different from base branch"
