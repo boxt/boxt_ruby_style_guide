@@ -5,7 +5,8 @@ require "boxt_ruby_style_guide/git_diff"
 
 RSpec.describe BoxtRubyStyleGuide::GitDiff do
   let(:current_repo_path) { repo_path(repo_name) }
-
+  # TODO: Figure out how to use non master base when using Git.init
+  let(:git_diff) { described_class.new(base: "master") }
   let(:repo_name) { "test-#{rand(1_000).to_i}" }
 
   let!(:git) do
@@ -24,7 +25,7 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
   end
 
   describe "#all" do
-    subject { described_class.new(*test_filepaths).all }
+    # subject { git_diff(*test_filepaths).all }
 
     context "when file is state U (modified not committed)" do
       before do
@@ -35,7 +36,7 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
 
       it "is included in the results" do
         Dir.chdir(current_repo_path) do
-          expect(described_class.new.all).to include("README.md")
+          expect(git_diff.all).to include("README.md")
         end
       end
     end
@@ -51,7 +52,7 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
 
       it "is included in the results" do
         Dir.chdir(current_repo_path) do
-          expect(described_class.new.all).to include("README.md")
+          expect(git_diff.all).to include("README.md")
         end
       end
     end
@@ -67,7 +68,7 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
 
       it "is included in the results" do
         Dir.chdir(current_repo_path) do
-          expect(described_class.new.all).to include("test_file.rb")
+          expect(git_diff.all).to include("test_file.rb")
         end
       end
     end
@@ -82,7 +83,7 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
 
       it "is not included in the results" do
         Dir.chdir(current_repo_path) do
-          expect(described_class.new.all).not_to include("README-new.md")
+          expect(git_diff.all).not_to include("README-new.md")
         end
       end
     end
@@ -99,7 +100,7 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
         # TODO: Work out how to test this.
         skip "Unsure how to set this up for testing"
         Dir.chdir(current_repo_path) do
-          expect(described_class.new.all).not_to include("README-new.md")
+          expect(git_diff.all).not_to include("README-new.md")
         end
       end
     end
@@ -112,7 +113,7 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
 
       it "is not included in the results" do
         Dir.chdir(current_repo_path) do
-          expect(described_class.new.all).not_to include("README.md")
+          expect(git_diff.all).not_to include("README.md")
         end
       end
     end
