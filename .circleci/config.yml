@@ -15,7 +15,7 @@ defaults: &defaults
         TZ: "Europe/London"
 
 jobs:
-  setup:
+  test:
     <<: *defaults
     steps:
       - checkout
@@ -24,12 +24,6 @@ jobs:
       - bundler/cache-read
       - bundler/install
       - bundler/cache-write
-
-  test:
-    <<: *defaults
-    steps:
-      - git/cache-read
-      - bundler/cache-read
       - bundler/audit
       - rubocop/lint
       - run:
@@ -41,7 +35,4 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - setup
-      - test:
-          requires:
-            - setup
+      - test
