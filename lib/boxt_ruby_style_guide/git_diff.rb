@@ -15,7 +15,7 @@ module BoxtRubyStyleGuide
 
     attr_reader :base
 
-    def initialize(base = "master")
+    def initialize(base:)
       @base = base
     end
 

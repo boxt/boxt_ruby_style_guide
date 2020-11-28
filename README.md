@@ -68,14 +68,14 @@ Lint tasks to run against files listed as changed by Git.
 To run `rubocop` against any changed files use:
 
 ```sh
-rake lint:rubocop RUBOCOP_LINT_BASE=your-base-branch
+RUBOCOP_LINT_BASE=your-base-branch rake lint:rubocop 
 ```
 
 To run `rubocop` with autofix, use one of the following:
 
 ```sh
-rake lint:rubocop_a RUBOCOP_LINT_BASE=your-base-branch
-rake lint:rubocop_A RUBOCOP_LINT_BASE=your-base-branch
+RUBOCOP_LINT_BASE=your-base-branch rake lint:rubocop -a 
+RUBOCOP_LINT_BASE=your-base-branch rake lint:rubocop -A
 ```
 
 
