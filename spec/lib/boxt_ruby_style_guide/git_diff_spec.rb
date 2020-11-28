@@ -25,8 +25,6 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
   end
 
   describe "#all" do
-    # subject { git_diff(*test_filepaths).all }
-
     context "when file is state U (modified not committed)" do
       before do
         update_file(current_repo_path, "README.md", <<~MARKDOWN)
