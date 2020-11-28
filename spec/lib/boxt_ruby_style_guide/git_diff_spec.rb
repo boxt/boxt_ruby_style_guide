@@ -4,9 +4,10 @@ require "spec_helper"
 require "boxt_ruby_style_guide/git_diff"
 
 RSpec.describe BoxtRubyStyleGuide::GitDiff do
-  let(:current_repo_path) { repo_path(repo_name) }
   # TODO: Figure out how to use non master base when using Git.init
-  let(:git_diff) { described_class.new(base: "master") }
+  subject(:git_diff) { described_class.new(base: "master") }
+
+  let(:current_repo_path) { repo_path(repo_name) }
   let(:repo_name) { "test-#{rand(1_000).to_i}" }
 
   let!(:git) do
