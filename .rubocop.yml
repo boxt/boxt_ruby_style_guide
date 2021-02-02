@@ -4,4 +4,5 @@ inherit_from:
   # - rails.yml
 
 require:
+  - rubocop-rake
   - rubocop-rspec
