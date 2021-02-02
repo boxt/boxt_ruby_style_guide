@@ -1,11 +1,10 @@
 # BOXT Ruby Style Guide
 
+[![Gem Version](https://badge.fury.io/rb/boxt_ruby_style_guide.png)](https://badge.fury.io/rb/boxt_ruby_style_guide)
+
 Ruby style guide and base Rubocop settings for Boxt Ruby projects.
 
 For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as the base guide, with any deviations can be found in the `default.yml`.
-
-[![Gem Version](https://badge.fury.io/rb/boxt_ruby_style_guide.png)](https://badge.fury.io/rb/boxt_ruby_style_guide)
-[![CircleCI](https://circleci.com/gh/boxt/boxt_ruby_style_guide/tree/master.svg?style=svg)](https://circleci.com/gh/boxt/boxt_ruby_style_guide/tree/master)
 
 ## Installation
 
@@ -23,8 +22,6 @@ And then execute:
 ```sh
 bundle
 ```
-
-Rails apps should have access to the lint tasks by default.
 
 ## Usage
 
