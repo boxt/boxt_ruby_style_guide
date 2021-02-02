@@ -221,8 +221,5 @@ DEPENDENCIES
   rspec-nc (~> 0.3)
   simplecov (~> 0.19)
 
-RUBY VERSION
-   ruby 2.7.2p137
-
 BUNDLED WITH
    2.2.4
