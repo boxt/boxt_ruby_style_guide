@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    boxt_ruby_style_guide (7.9.1)
+    boxt_ruby_style_guide (7.9.2)
       git (~> 1.4)
       rubocop (= 1.10.0)
       rubocop-faker (= 1.1.0)
@@ -87,7 +87,7 @@ GEM
       rchardet (~> 1.8)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    i18n (1.8.8)
+    i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     loofah (2.9.0)
       crass (~> 1.0.2)
