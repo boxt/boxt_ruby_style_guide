@@ -8,7 +8,7 @@ gemspec
 
 group :development do
   gem "bundler", "~> 2.1"
-  gem "bundler-audit", "~> 0.7"
+  gem "bundler-audit", "~> 0.8"
   gem "rails", "> 5", "< 7"
   gem "rake", "~> 13.0"
   gem "rspec", "~> 3.9"
