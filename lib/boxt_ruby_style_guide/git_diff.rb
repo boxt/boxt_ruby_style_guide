@@ -24,9 +24,7 @@ module BoxtRubyStyleGuide
     #
     # Returns Array
     def all
-      @all ||= begin
-        git.diff(base).name_status.select { |_, stat| TEST_STATUSES.include?(stat) }.keys
-      end
+      @all ||= git.diff(base).name_status.select { |_, stat| TEST_STATUSES.include?(stat) }.keys
     end
 
     private
