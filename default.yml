@@ -1,11 +1,11 @@
 AllCops:
   Exclude:
-    - "**/*/schema.rb"
-    - "Gemfile.lock"
-    - "node_modules/**/*"
-    - "tmp/**/*"
-    - "vendor/**/*"
-  TargetRubyVersion: 2.7.2
+    - '**/*/schema.rb'
+    - 'Gemfile.lock'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+  TargetRubyVersion: 2.7.3
 Layout/LineLength:
   Exclude:
     - config/routes.rb
@@ -15,7 +15,7 @@ Metrics/AbcSize:
     - db/migrate/**/*
 Metrics/BlockLength:
   Exclude:
-    - "*.gemspec"
+    - '*.gemspec'
     - Gemfile
     - config/routes.rb
     - db/migrate/**/*
