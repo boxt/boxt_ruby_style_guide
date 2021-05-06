@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    boxt_ruby_style_guide (7.9.3)
+    boxt_ruby_style_guide (7.10.0)
       git (~> 1.4)
       rubocop (= 1.14.0)
       rubocop-faker (= 1.1.0)
