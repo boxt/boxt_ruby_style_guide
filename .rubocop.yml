@@ -1,6 +1,5 @@
 inherit_from:
   - default.yml
-  - pending.yml
 
 require:
   - rubocop-rake
