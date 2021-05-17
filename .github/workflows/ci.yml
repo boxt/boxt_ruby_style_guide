@@ -19,7 +19,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: "2.7"
+          ruby-version: '3.0.1'
       - run: bundle exec bundler-audit check --update
   lint:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: "2.7"
+          ruby-version: '3.0.1'
       - run: bundle exec rubocop
   test:
     runs-on: ubuntu-latest
@@ -37,5 +37,5 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: "2.7"
+          ruby-version: '3.0.1'
       - run: bundle exec rake test
