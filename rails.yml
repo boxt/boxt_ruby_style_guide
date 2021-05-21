@@ -2,6 +2,8 @@ Rails/ApplicationController:
   Exclude:
     - spec/**/*
     - test/**/*
+Rails/EnvironmentVariableAccess:
+  AllowReads: true # Enabling allow reads so we can use ENV["VAR"]
 Rails/SkipsModelValidations:
   Exclude:
     - db/migrate/**/*
