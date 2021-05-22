@@ -2,7 +2,7 @@
 # is being tested, and this cop doesn't like having a describe block without a class or module name.
 RSpec/DescribeClass:
   Exclude:
-    - spec/tasks
+    - spec/tasks/**/*
 # This is to prevent Rubocop from bugging on a spec helper that doesn't contain an example, which the tasks ones don't
 RSpec/LeadingSubject:
   Exclude:
