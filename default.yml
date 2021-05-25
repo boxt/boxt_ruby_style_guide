@@ -1,11 +1,12 @@
 AllCops:
   Exclude:
     - '**/*/schema.rb'
-    - 'Gemfile.lock'
-    - 'node_modules/**/*'
-    - 'tmp/**/*'
-    - 'vendor/**/*'
-  TargetRubyVersion: 2.7.3
+    - Gemfile.lock
+    - node_modules/**/*
+    - tmp/**/*
+    - vendor/**/*
+  NewCops: enable
+  TargetRubyVersion: 3.0.1
 Layout/LineLength:
   Exclude:
     - config/routes.rb

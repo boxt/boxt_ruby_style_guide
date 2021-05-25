@@ -31,12 +31,13 @@ Add a `.rubocop.yml` file to the root of your project with the following setting
 inherit_gem:
   boxt_ruby_style_guide:
     - default.yml # use default cops
-    - pending.yml # use pending cops
     - rails.yml # use Rails cops - see Additional Extensions/Cops
-    - rails-pending.yml # use pending rails cops
-    - rspec.yml # use rspec cops
+    - rspec.yml # use rspec cops - see Additional Extensions/Cops
 ```
 
+### NewCops
+
+`NewCops` is enabled by default.
 ### Additional Extensions/Cops
 
 The following Rubocop gems are also installed with this gem:
