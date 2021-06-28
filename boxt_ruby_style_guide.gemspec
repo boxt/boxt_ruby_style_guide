@@ -32,6 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rubocop", "1.17.0"
   spec.add_dependency "rubocop-faker", "1.1.0"
   spec.add_dependency "rubocop-rails", "2.11.1"
-  spec.add_dependency "rubocop-rake", "0.5.1"
+  spec.add_dependency "rubocop-rake", "0.6.0"
   spec.add_dependency "rubocop-rspec", "2.4.0"
 end
