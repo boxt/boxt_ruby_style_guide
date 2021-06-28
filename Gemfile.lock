@@ -73,9 +73,6 @@ GEM
       zeitwerk (~> 2.3)
     ast (2.4.2)
     builder (3.2.4)
-    bundler-audit (0.8.0)
-      bundler (>= 1.2.0, < 3)
-      thor (~> 1.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     diff-lcs (1.4.4)
@@ -210,7 +207,6 @@ PLATFORMS
 DEPENDENCIES
   boxt_ruby_style_guide!
   bundler (~> 2.1)
-  bundler-audit (~> 0.8)
   rails (> 5, < 7)
   rake (~> 13.0)
   rspec (~> 3.9)
