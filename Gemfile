@@ -7,7 +7,7 @@ source "https://rubygems.org"
 gemspec
 
 group :development do
-  gem "bundler", "~> 2.1"
+  gem "bundler", "2.2.21"
   gem "rails", "> 5", "< 7"
   gem "rake", "~> 13.0"
   gem "rspec", "~> 3.9"
