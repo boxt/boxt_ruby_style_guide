@@ -1,12 +1,12 @@
 AllCops:
   Exclude:
-    - '**/*/schema.rb'
+    - "**/*/schema.rb"
     - Gemfile.lock
     - node_modules/**/*
     - tmp/**/*
     - vendor/**/*
   NewCops: enable
-  TargetRubyVersion: 3.0.1
+  TargetRubyVersion: 3.0.2
 Layout/LineLength:
   Exclude:
     - config/routes.rb
@@ -16,7 +16,7 @@ Metrics/AbcSize:
     - db/migrate/**/*
 Metrics/BlockLength:
   Exclude:
-    - '*.gemspec'
+    - "*.gemspec"
     - Gemfile
     - config/routes.rb
     - db/migrate/**/*
