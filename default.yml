@@ -19,6 +19,7 @@ Metrics/BlockLength:
     - "*.gemspec"
     - Gemfile
     - config/routes.rb
+    - config/routes/*
     - db/migrate/**/*
     - spec/**/*
     - test/**/*
