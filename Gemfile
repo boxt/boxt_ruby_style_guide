@@ -7,7 +7,7 @@ source "https://rubygems.org"
 gemspec
 
 group :development do
-  gem "rails", "> 5", "< 7"
+  gem "rails", ">= 6.1.4.1", "< 7"
   gem "rake", "~> 13.0"
   gem "rspec", "~> 3.9"
   gem "rspec-nc", "~> 0.3"
