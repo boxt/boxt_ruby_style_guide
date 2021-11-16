@@ -1,35 +1,35 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/ExpandPathArguments
-# NOTE: This is because of Gemfury failing with __dir__
-lib = File.expand_path("../lib", __FILE__)
-# rubocop:enable Style/ExpandPathArguments
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "boxt_ruby_style_guide/version"
 
 Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 2.7"
   spec.authors = ["Boxt"]
-  spec.description = "Ruby styleguide info for the BOXT projects, as well as config settings for Rubocop"
+  spec.description = "Ruby style guide info for BOXT projects, as well as config settings for Rubocop"
   spec.email = ["developers@boxt.co.uk"]
   spec.homepage = "https://github.com/boxt/ruby-style-guide"
   spec.license = "MIT"
+  spec.metadata = {
+    "rubygems_mfa_required" => "true"
+  }
   spec.name = "boxt_ruby_style_guide"
-  spec.summary = "Ruby styleguide info for the BOXT Ruby projects"
+  spec.summary = "Ruby style guide info for BOXT Ruby projects"
   spec.version = BoxtRubyStyleGuide::VERSION
 
   spec.files = Dir[
+    "*.yml",
     "MIT-LICENSE",
     "README.md",
     "Rakefile",
     "VERSION",
-    "*.yml",
     "lib/**/*"
   ]
 
   # Locking rubocop versions so we can control the pending cops
   spec.add_dependency "git", "~> 1.4"
-  spec.add_dependency "rubocop", "1.22.3"
+  spec.add_dependency "rubocop", "1.23.0"
   spec.add_dependency "rubocop-faker", "1.1.0"
   spec.add_dependency "rubocop-rails", "2.12.4"
   spec.add_dependency "rubocop-rake", "0.6.0"
