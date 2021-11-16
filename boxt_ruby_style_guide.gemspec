@@ -14,6 +14,9 @@ Gem::Specification.new do |spec|
   spec.email = ["developers@boxt.co.uk"]
   spec.homepage = "https://github.com/boxt/ruby-style-guide"
   spec.license = "MIT"
+  spec.metadata = {
+    "rubygems_mfa_required" => "true"
+  }
   spec.name = "boxt_ruby_style_guide"
   spec.summary = "Ruby styleguide info for the BOXT Ruby projects"
   spec.version = BoxtRubyStyleGuide::VERSION
