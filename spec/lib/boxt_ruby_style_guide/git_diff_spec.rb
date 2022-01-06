@@ -121,7 +121,7 @@ RSpec.describe BoxtRubyStyleGuide::GitDiff do
   private
 
   def create_file(repo_path, file_name, content = "")
-    File.open(repo_path.join(file_name), "wb") { |f| f.write(content) }
+    File.binwrite(repo_path.join(file_name), content)
   end
 
   alias_method :update_file, :create_file
