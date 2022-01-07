@@ -1,6 +1,7 @@
 # BOXT Ruby Style Guide
 
-[![Gem Version](https://badge.fury.io/rb/boxt_ruby_style_guide.png)](https://badge.fury.io/rb/boxt_ruby_style_guide)
+[![Gem Version](https://badge.fury.io/rb/boxt_ruby_style_guide.svg)](https://badge.fury.io/rb/boxt_ruby_style_guide)
+[![CI](https://github.com/boxt/boxt_ruby_style_guide/actions/workflows/ci.yml/badge.svg)](https://github.com/boxt/boxt_ruby_style_guide/actions/workflows/ci.yml)
 
 Ruby style guide and base Rubocop settings for Boxt Ruby projects.
 
@@ -23,6 +24,10 @@ And then execute:
 bundle
 ```
 
+## Requirements
+
+* Ruby 3.0.0 or above
+
 ## Usage
 
 Add a `.rubocop.yml` file to the root of your project with the following settings:
@@ -38,6 +43,7 @@ inherit_gem:
 ### NewCops
 
 `NewCops` is enabled by default.
+
 ### Additional Extensions/Cops
 
 The following Rubocop gems are also installed with this gem:
@@ -60,26 +66,6 @@ require:
   - rubocop-rake # if your project is using rake then add this
   - rubocop-rspec # if your project is using rspec then add this, plus the - rspec.yml setting above
 ```
-
-## Lint Tasks
-
-Lint tasks to run against files listed as changed by Git.
-
-To run `rubocop` against any changed files use:
-
-```sh
-RUBOCOP_LINT_BASE=your-base-branch rake lint:rubocop 
-```
-
-To run `rubocop` with autofix, use one of the following:
-
-```sh
-RUBOCOP_LINT_BASE=your-base-branch rake lint:rubocop -a 
-RUBOCOP_LINT_BASE=your-base-branch rake lint:rubocop -A
-```
-
-
-If there are no changed files the commands will run against all files.
 
 ## Editor Plugins
 
