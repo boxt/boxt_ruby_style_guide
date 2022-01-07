@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "boxt_ruby_style_guide/railtie" if defined?(Rails)
 require "boxt_ruby_style_guide/version"
 
 module BoxtRubyStyleGuide
