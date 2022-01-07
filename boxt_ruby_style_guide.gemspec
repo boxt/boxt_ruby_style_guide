@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "boxt_ruby_style_guide/version"
 
 Gem::Specification.new do |spec|
-  spec.required_ruby_version = ">= 3.0"
+  spec.required_ruby_version = ">= 2.7"
   spec.authors = ["Boxt"]
   spec.description = "Ruby style guide info for BOXT projects, as well as config settings for Rubocop"
   spec.email = ["developers@boxt.co.uk"]
