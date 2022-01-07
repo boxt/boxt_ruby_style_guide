@@ -6,10 +6,11 @@ AllCops:
     - tmp/**/*
     - vendor/**/*
   NewCops: enable
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
 Layout/LineLength:
   Exclude:
     - config/routes.rb
+    - config/routes/*
   Max: 120
 Metrics/AbcSize:
   Exclude:
