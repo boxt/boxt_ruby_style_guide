@@ -6,7 +6,6 @@ AllCops:
     - tmp/**/*
     - vendor/**/*
   NewCops: enable
-  TargetRubyVersion: 3.0
 Layout/LineLength:
   Exclude:
     - config/routes.rb

@@ -26,7 +26,7 @@ bundle
 
 ## Requirements
 
-* Ruby 3.0.0 or above
+* Ruby 2.7 or above
 
 ## Usage
 
