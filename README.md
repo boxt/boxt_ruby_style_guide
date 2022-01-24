@@ -7,6 +7,9 @@ Ruby style guide and base Rubocop settings for Boxt Ruby projects.
 
 For the most part we are using [this Ruby style guide](https://github.com/bbatsov/ruby-style-guide) as the base guide, with any deviations can be found in the `default.yml`.
 
+## Requirements
+
+* Ruby 3.0
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,10 +26,6 @@ And then execute:
 ```sh
 bundle
 ```
-
-## Requirements
-
-* Ruby 2.7 or above
 
 ## Usage
 
