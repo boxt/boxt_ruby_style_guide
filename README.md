@@ -1,5 +1,7 @@
 # BOXT Ruby Style Guide
 
+This repo is now archived in favour of https://github.com/boxt/boxt_rubocop.
+
 [![Gem Version](https://badge.fury.io/rb/boxt_ruby_style_guide.svg)](https://badge.fury.io/rb/boxt_ruby_style_guide)
 [![CI](https://github.com/boxt/boxt_ruby_style_guide/actions/workflows/ci.yml/badge.svg)](https://github.com/boxt/boxt_ruby_style_guide/actions/workflows/ci.yml)
 
